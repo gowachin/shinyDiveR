@@ -1,0 +1,9 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENCE-CECILL-2.1.txt$
+
+biblio
+raw_data
+tryhard.R
+
+inst
