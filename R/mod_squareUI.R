@@ -134,8 +134,9 @@ mod_squareServer <- function(id, i18n){
       ################ Compute dive 1 ################
       dive1 <- dive(
         depth = input$depth1, time = input$time1,
-        secu = input$'adv_param-secu', vup = input$'adv_param-vup' # ,
-        # hour = minute(input$time_input1) + 60 * hour(input$time_input1)
+        secu = input$'adv_param-secu', vup = input$'adv_param-vup',
+        hour = minute(input$'adv_param-time_input1') + 
+          60 * hour(input$'adv_param-time_input1')
       )
       # allow for second dive depending interval and depth
       updateCheckboxInput(session, "ghost_sec", "ghost second dive",

@@ -7,7 +7,5 @@ devtools::load_all('.') # charge le package
 getOption( "shiny.lang")
 options(shiny.lang = 'en') # change language 'fr' or 'en' supported by app
 options(app.prod = FALSE) # TRUE = production mode, FALSE = development mode
-options(shiny.loc = "")
 shiny::runApp('inst/app') # lance l'application
-Sys.setenv(LANG = "fr_FR.UTF-8") 
 

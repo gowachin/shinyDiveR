@@ -39,7 +39,9 @@ Consumption part of shiny (plot.conso, more text, reactive slider etc)
 - change maximum depth for consecutive dives in shiny
 - modify advanced parameters for screen
 - push shiny in prod
-- add hour
+- add hour input to ndive
 - checkbox to force inverse profile or 60+ dive !
 
 Feel free to fork this, and use it. Any recommendation is welcome :) 
+
+Thanks to Rtask for great help in app building ! https://rtask.thinkr.fr/fr/notre-template-shiny-pour-concevoir-une-appli-prod-ready/
