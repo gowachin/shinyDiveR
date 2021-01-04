@@ -3,7 +3,17 @@
 \docType{package}
 \name{shinyDiveR}
 \alias{shinyDiveR}
-\title{mn90}
+\alias{run_app}
+\title{shinyDiveR}
+\usage{
+run_app(language = c("en", "fr"))
+}
+\arguments{
+\item{language}{'en' by default, option to choose the language to run the app
+with. Choice between 'en' and 'fr' (english, french).}
+}
 \description{
 A package to code some basic function about dive profiles.
+
+Function to run the application
 }

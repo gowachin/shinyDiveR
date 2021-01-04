@@ -11,8 +11,13 @@ LazyData: true
 Imports: graphics,
          R.utils,
          stats,
-         shiny
-RoxygenNote: 7.1.0
+         shiny,
+         shiny.i18n,
+         shinyTime,
+         lubridate,
+         shinyWidgets,
+         mn90
+RoxygenNote: 7.1.1
 Depends: R (>= 2.10)
 Suggests: 
     knitr,
