@@ -26,7 +26,7 @@ run_app <- function(language = c("en","fr")) {
   # choosing language
   language <- match.arg(language)
   cat('Launching app with ',language,' language\n')
-  Sys.setenv(LANG = language)
+  options(shiny.lang = language)
   options(shiny.loc = "inst/app/")
   i18n <- Translator$new(translation_json_path = "inst/app/translations/translation.json")
   i18n$set_translation_language(language)

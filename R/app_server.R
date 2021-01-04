@@ -2,7 +2,7 @@
 #'
 app_server <- function(input, output,session) {
   # setting language
-  language <- Sys.getenv('LANG')
+  language <- getOption( "shiny.lang")
   if (! language %in% c('en','fr')) language <- 'en'
   i18n <- Translator$new(translation_json_path = paste0(getOption( "shiny.loc"),"translations/translation.json"))
   i18n$set_translation_language(language)
