@@ -4,7 +4,7 @@
 \alias{mod_consoUI}
 \title{mod_consoUI}
 \usage{
-mod_consoUI(id, i18n, sec_plot)
+mod_consoUI(id, i18n)
 }
 \arguments{
 \item{id}{shiny id}

@@ -83,8 +83,8 @@ mod_squareUI <- function(id, i18n){
         conditionalPanel(
           condition = "false",
           checkboxInput(ns("ghost_sec"), "ghost second dive", FALSE),
-          checkboxInput(ns("time_sec"), "time second dive", FALSE),
-          checkboxInput(ns("sec_plot"), "plot second dive", FALSE)
+          checkboxInput(ns("time_sec"), "time second dive", FALSE) #,
+          # checkboxInput(ns("sec_plot"), "plot second dive", FALSE)
         )
       ),
       mainPanel(
@@ -114,6 +114,8 @@ mod_squareUI <- function(id, i18n){
 #' @export
 #' @rdname mod_squareUI
 mod_squareServer <- function(id, i18n, r){
+  r$no_run <- FALSE # set for the conso module, to pass if slider return works
+  
   moduleServer(
     id,
     ## Below is the module function
@@ -177,9 +179,10 @@ mod_squareServer <- function(id, i18n, r){
       updateCheckboxInput(session, "time_sec", "ghost second dive",
                           value = (maxt2 > 0)
       )
-      updateCheckboxInput(session, "sec_plot", "ghost second dive",
-                          value = input$sec & input$ghost_sec & input$time_sec
-      )
+      r$sec_plot <- input$sec & input$ghost_sec & input$time_sec
+      # updateCheckboxInput(session, "sec_plot", "ghost second dive",
+      #                     value = input$sec & input$ghost_sec & input$time_sec
+      # )
       if (!app_prod()){
       cat("\nmaj done\n") # consol debug help
       cat("inter ", interv, "time2 ", input$time2) # consol debug help
@@ -188,7 +191,8 @@ mod_squareServer <- function(id, i18n, r){
       cat(input$ghost_sec, "ghost check\n")
       cat(input$sec, "sec\n")
       cat(input$time_sec, "time check\n")
-      cat(input$sec_plot, "sec plot")
+      # cat(input$sec_plot, "sec plot")
+      cat(r$sec_plot, "sec plot")
       }
       ################ SLIDER T2 UPDATE ################
       if (timet > maxt2 | !input$time_sec) {
@@ -203,8 +207,9 @@ mod_squareServer <- function(id, i18n, r){
             i18n$t("A second dive is not possible at this depth")
           })
         }
-        # if (input$ghost_sec | input$time_sec) return()
         if (input$time_sec) {
+          r$no_run <- TRUE
+          if (!app_prod()){cat("\n\n slider return")}
           return()
         }
       } else {
@@ -213,8 +218,9 @@ mod_squareServer <- function(id, i18n, r){
       ################ Plot and compute dives ################
       # if (input$type == 'sqr'){}
       if (!app_prod()){cat("\n\n    dives compute")}
-      if (!input$sec_plot ) {
-        if (!app_prod()){cat("    single")}
+      # if (!input$sec_plot ) {
+        if (!r$sec_plot ) {
+        if (!app_prod()){cat("    single\n")}
         # Plot the dive
         output$divePlot <- renderPlot({
           plot(dive1, ylab = i18n$t("Depth (m)"), xlab = i18n$t("Time (min)"))
@@ -224,7 +230,7 @@ mod_squareServer <- function(id, i18n, r){
         
         r$dives <- dive1
       } else {
-        if (!app_prod()){cat("    multiples")}
+        if (!app_prod()){cat("    multiples\n")}
         # compute the dive
         mult_dive <- ndive(dive1,
                            dive(

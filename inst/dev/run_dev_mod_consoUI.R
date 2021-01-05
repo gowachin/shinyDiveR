@@ -15,14 +15,14 @@ if (interactive()){
   
   ui <- fluidPage(
     mod_squareUI('square', i18n),
-    mod_consoUI('conso', i18n, input$"square-sec_plot")
+    mod_consoUI('conso', i18n)
   )
   
   server <- function(input, output, session) {
     observe({
       r <- reactiveValues()
       mod_squareServer('square', i18n, r)
-      mod_consoServer('conso', i18n, input$"square-sec_plot", r$dives)
+      mod_consoServer('conso', i18n, input$"square-sec_plot", r$dives, r)
     })
   }
   shinyApp(ui, server)

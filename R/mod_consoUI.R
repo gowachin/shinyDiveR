@@ -11,7 +11,7 @@ NULL
 #' 
 #'  
 #' @export
-mod_consoUI <- function(id, i18n, sec_plot){
+mod_consoUI <- function(id, i18n){
   ns <- NS(id)
   
   out <- tagList(
@@ -23,9 +23,14 @@ mod_consoUI <- function(id, i18n, sec_plot){
         helpText(paste(
           i18n$t("You can input a dive with a depth and time")
         )),
+        conditionalPanel(# hidden checkbox !
+          'false', ns = ns, checkboxInput(ns("sec_plot"), i18n$t("sec_plot"), 
+                                          FALSE)
+        ),
+                         
         # fucking conditionnal panel not working as i want
         conditionalPanel(
-          condition = "input.sec_plot == true",
+          condition = "input.sec_plot == true", ns = ns,
           selectInput(
             ns("conso_selec"), "Select the dive",
             c(
@@ -48,7 +53,7 @@ mod_consoUI <- function(id, i18n, sec_plot){
           inputId = ns("cons"), label = i18n$t("Consumption (littre/minute) :"),
           min = 10, max = 30, value = 20, step = 1
         ),
-        # rule 1
+        # rule 1 
         helpText(paste("A rule is an important pression to watch during a dive")),
         fluidRow(
           column(width = 4, textInput(ns('rule1'), 'Rule 1', value = "Mid-pression")),
@@ -70,12 +75,11 @@ mod_consoUI <- function(id, i18n, sec_plot){
         # advanced pression settings ####
         checkboxInput("advset_press", i18n$t("Advanced settings"), FALSE),
         conditionalPanel(
-          condition = "input.advset_press",
+          condition = "input.advset_press", ns = ns, 
           # checkboxInput("secu", i18n$t("Security stop"), TRUE),
           selectInput(
             "conso_selec", "Select the pression unit",
             c(
-              # i18n$t("Square") = "sqr" #, # don't work, who knows why ?
               "bar" = "bar",
               "psi" = "psi"
             )
@@ -103,7 +107,9 @@ mod_consoUI <- function(id, i18n, sec_plot){
 #'
 #' @export
 #' @rdname mod_squareUI
-mod_consoServer <- function(id, i18n, sec_plot, dives){
+mod_consoServer <- function(id, i18n, sec_plot, dives, r){
+  if(r$no_run) return() # set in square, to echap the slider return() call
+  
   moduleServer(
     id,
     ## Below is the module function
@@ -111,21 +117,25 @@ mod_consoServer <- function(id, i18n, sec_plot, dives){
       # compute the interval in minuyte ----
       if (!app_prod()){
         cat('\n\nconso start\n')
-        print(input$conso_selec)
         print(names(input))
+        print(input$conso_selec)
+        print(dives$dive2)
         }
-      if (sec_plot){ # select the dive
+      if (r$sec_plot){ # select the dive
+        updateCheckboxInput(session, "sec_plot", "sec_plot", TRUE)
         conso_dive <- switch(input$conso_selec,
                              first = dives$dive1,
                              second = dives$dive2)
       } else {
         conso_dive <- dives
       }
+      if (!app_prod()){cat('compute conso\n')} # bug here in the conso part! see package
+      print(conso_dive)
       dt_conso <- conso(dive = conso_dive, bloc = bloc(input$volume, input$press), 
                         cons = input$cons, 
                         mid = input$rule1_press, reserve = input$rule2_press)
       # plot consuption
-      
+      if (!app_prod()){cat('make plot\n')}
       output$plot_conso <- renderPlot({
         # plot(1,1, main = 'dev plot')
         plot(conso_dive, ylab = i18n$t("Depth (m)"), xlab = i18n$t("Time (min)"))

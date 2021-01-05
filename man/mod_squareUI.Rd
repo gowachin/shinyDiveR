@@ -9,7 +9,7 @@
 \alias{mod_summarisediveServer}
 \title{mod_consoServer}
 \usage{
-mod_consoServer(id, i18n, sec_plot, dives)
+mod_consoServer(id, i18n, sec_plot, dives, r)
 
 mod_curveServer(id, i18n)
 

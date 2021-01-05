@@ -29,7 +29,8 @@ A second dive depends heavily on the first one as the desaturation is not perfec
 
 ## Actual in work part
 
-Consumption part of shiny (plot.conso, more text, reactive slider etc)
+Consumption part of shiny (plot.conso, more text, reactive slider for pression etc)
+TODO : make a module for rules !
 
 ## To do : 
 
