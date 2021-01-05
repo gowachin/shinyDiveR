@@ -18,8 +18,9 @@ if (interactive()){
   )
   
   server <- function(input, output, session) {
+    r <- reactiveValues()
     observe({
-      mod_squareServer('square', i18n)
+      mod_squareServer('square', i18n, r)
     })
   }
   shinyApp(ui, server)

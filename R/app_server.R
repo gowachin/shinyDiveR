@@ -7,8 +7,10 @@ app_server <- function(input, output,session) {
   i18n <- Translator$new(translation_json_path = paste0(.libPaths()[1],"/shinyDiveR/app/translations/translation.json"))
   i18n$set_translation_language(language)
   
+  r <- reactiveValues()
+  
   observe({
-    mod_squareServer('square', i18n)
+    r$dives <- mod_squareServer('square', i18n, r)
   })
   
 }

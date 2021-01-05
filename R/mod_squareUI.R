@@ -113,7 +113,7 @@ mod_squareUI <- function(id, i18n){
 #'
 #' @export
 #' @rdname mod_squareUI
-mod_squareServer <- function(id, i18n){
+mod_squareServer <- function(id, i18n, r){
   moduleServer(
     id,
     ## Below is the module function
@@ -221,6 +221,8 @@ mod_squareServer <- function(id, i18n){
         })
         # Dive summary
         output$dive <- mod_summarisediveServer('dive1', i18n, dive1)
+        
+        r$dives <- dive1
       } else {
         if (!app_prod()){cat("    multiples")}
         # compute the dive
@@ -243,8 +245,10 @@ mod_squareServer <- function(id, i18n){
           output$dive2 <- mod_summarisediveServer('dive2', i18n, 
                                                   mult_dive$dive2)
         }
+        
+        r$dives <- mult_dive
       }
-      cat("\n    end")
+    
     }
   )
 }
