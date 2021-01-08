@@ -134,11 +134,16 @@ mod_squareServer <- function(id, i18n, r){
         updateSliderInput(session, "time1", value = tmp, min = 1, max = maxt1)
       }
       ################ Compute dive 1 ################
+      if(!app_prod()) {
+        hour <- minute(input$'adv_param-time_input1') + 
+          60 * hour(input$'adv_param-time_input1')
+      } else {
+        hour <- 0
+      }
       dive1 <- dive(
         depth = input$depth1, time = input$time1,
         secu = input$'adv_param-secu', vup = input$'adv_param-vup',
-        hour = minute(input$'adv_param-time_input1') + 
-          60 * hour(input$'adv_param-time_input1')
+        hour = hour
       )
       # allow for second dive depending interval and depth
       updateCheckboxInput(session, "ghost_sec", "ghost second dive",
@@ -258,52 +263,4 @@ mod_squareServer <- function(id, i18n, r){
     }
   )
 }
-
-#' @title   mod_summarisediveServer
-#' @description  Shiny module for square profile
-#'
-#' @param id shiny id
-#' @param i18n traduction language
-#' @param dive a dive object created by the mn90 package
-#'
-#' @export
-#' @rdname mod_squareUI
-mod_summarisediveServer <- function(id, i18n, dive){
-  moduleServer(
-    id,
-    ## Below is the module function
-    function(input, output, session) {
-      sup <- dive$palier$time > 0
-      n <- sum(sup)
-      diz <- sum(dive$palier$time[sup] > 9)
-      sp <- c(rep("  ", n - diz), rep(" ", diz))
-      
-      if(dive$palier$group != "Z"){
-        group <- paste0(i18n$t('The dive group is '), dive$palier$group)
-      } else {
-        group <- ''
-      }
-      
-      ret <- renderText({
-        paste0(
-          i18n$t("The first dive reach "), depth(dive),
-          i18n$t(" meters for a duration of "), dtime(dive), " minutes.\n",
-          i18n$t("Total dive time is "), diff(dive$hour),
-          i18n$t(" minutes with an ascent of "), dive$dtr, " minutes.\n",
-          sum(dive$palier$time > 0), i18n$t(" stops :"),
-          paste(sprintf(
-            i18n$t("%s%d minutes at %d meters"), sp,
-            dive$palier$time[sup],
-            dive$palier$depth[sup]
-          ),
-          collapse = "\n         "
-          ), '\n', group
-        )
-        
-      })
-      ret
-    }
-  )
-}
-
 

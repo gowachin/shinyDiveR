@@ -27,6 +27,7 @@
       {"en": " minutes with an ascent of ", "fr": " minutes avec \nun temps de remontée de "},
       {"en": " stops :", "fr": " paliers :"},
       {"en": "The dive group is ", "fr": "Le groupe de plongée est "},
+      {"en": "The dive majoration is ", "fr": "La majoration de cette plongée est de "},
       
       {"en": "A second dive is not possible in less than 12h", "fr": "Une seconde plongée est impossible avant 12h"},
       {"en": "A second dive is not possible at this depth", "fr": "Une seconde plongée est impossible à cette profondeur"},

@@ -50,6 +50,7 @@ i18n$set_translation_language(language)
   else x
 }
 #' return `TRUE` if in `production mode`
+#' @export
 app_prod <- function(){
   getOption( "app.prod" ) %-% TRUE
 }
