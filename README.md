@@ -2,7 +2,7 @@
 
 R package and shiny application for dive planification tools. It contains functions and methods to represent dive curves, desaturation time and gas consumption. At this day, only mn90 tables models are coded for single, consecutive or successive dives. This mean all profile are square ones and only maximum depth and dive time are used to compute desaturation.
 
-The shiny application is not yet in production.
+**The shiny application is not yet in production.**
 
 Future parts are work in progress, like more precise planification setup with different depths and time input. Desaturation planification with other models are also planned along with maybe other gas than air supported for consumption
 
@@ -26,6 +26,12 @@ dive(20,40)
 A second dive depends heavily on the first one as the desaturation is not perfect and residual azote will impact the second saturation. 
 -->
 
+## Disclaimer 
+This application is intended for use in education about scubadiving planification and academic interest only. It is not designed for actual use in scuba diving and underwater activity. It is emphatically not suitable for use in actual diving. Scuba diving is a dangerous activity with risks of death and serious injury. No-one should attempt scuba diving without training, certification, supervision and regular medical assessment. It is also dangerous for trained scuba divers to exceed the limitations of their training. 
+
+This application will provide planinfication about dive profile and air consumption, without giving any warning if the activity would be dangerous or fatal. In doing so, it does not take account of safety restrictions, other physical laws, or other important information. 
+Despite using diving table as base for computation, no output from this application should be misconstrued as a diving table. The author does not warrant that the application is correct in any sense whatsoever. Even if correctly computed, the predictions of a theoretical physical model may not be correct predictions.
+
 
 ## Actual in work part
 
@@ -34,13 +40,12 @@ TODO : make a module for rules !
 
 ## To do : 
 
-- Complete README with shiny in prod and examples.
+- Complete README when shiny in prod and examples.
 
 ### Shiny 
 - change maximum depth for consecutive dives in shiny
 - modify advanced parameters for screen
 - push shiny in prod
-- add hour input to ndive
 - checkbox to force inverse profile or 60+ dive !
 
 Feel free to fork this, and use it. Any recommendation is welcome :) 
