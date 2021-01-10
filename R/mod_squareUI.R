@@ -16,7 +16,7 @@ NULL
 #' library(mn90)
 #' library(shinyWidgets)
 #' if (interactive()){
-#' i18n <- Translator$new(translation_json_path = "inst/app/translations/translation.json")
+#' i18n <- shinyDiveR::i18n
 #' i18n$set_translation_language('en')
 #' ui <- fluidPage(
 #'   mod_squareUI('square', i18n)
@@ -122,6 +122,7 @@ mod_squareServer <- function(id, i18n, r){
     function(input, output, session) {
       # compute the interval in minuyte ----
       if (!app_prod()){cat('square start\n')}
+      print(input$interv)
       interv <- minute(input$interv) +
         60 * hour(input$interv)
       maxt1 <- max_depth_t(input$depth1)

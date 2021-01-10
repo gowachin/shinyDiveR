@@ -1,6 +1,7 @@
 #' @import shiny
 #' @import lubridate
 #' @import mn90
+#' @import graphics
 NULL
 
 #' @title   mod_consoUI
@@ -104,6 +105,9 @@ mod_consoUI <- function(id, i18n){
 #'
 #' @param id shiny id
 #' @param i18n traduction language
+#' @param sec_plot input of square module if there is a second dive or not
+#' @param dives a dive object created by the square module
+#' @param r list passing objects from module to modules
 #'
 #' @export
 #' @rdname mod_squareUI

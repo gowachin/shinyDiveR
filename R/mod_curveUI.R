@@ -107,10 +107,10 @@ mod_curveServer <- function(id, i18n){
         # hot_validate_numeric(cols = 1, min = -50, max = 50)
       })
       ## Save
-      observeEvent(input$save, {
-        finalDF <- isolate(values[["DF"]])
-        saveRDS(finalDF, file = file.path(outdir, sprintf("%s.rds", outfilename)))
-      })
+      # observeEvent(input$save, {
+      #   finalDF <- isolate(values[["DF"]])
+      #   saveRDS(finalDF, file = file.path(outdir, sprintf("%s.rds", outfilename)))
+      # })
       
     }
   )

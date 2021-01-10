@@ -10,8 +10,8 @@ library(lubridate)
 library(mn90)
 library(shinyWidgets)
 if (interactive()){
-  i18n <- Translator$new(translation_json_path = paste0(.libPaths()[1],"/shinyDiveR/app/translations/translation.json"))
-  i18n$set_translation_language('fr')
+  i18n <- shinyDiveR::i18n
+  i18n$set_translation_language('en')
   
   ui <- fluidPage(
     mod_squareUI('square', i18n)

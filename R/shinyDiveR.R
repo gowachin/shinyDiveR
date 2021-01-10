@@ -1,7 +1,7 @@
-#' @import graphics
 #' @import shiny
 #' @import utils
 #' @import shiny.i18n
+#' @import pkgload
 NULL
 
 #' shinyDiveR
@@ -21,21 +21,20 @@ NULL
 #' with. Choice between 'en' and 'fr' (english, french).
 #' 
 #' @examples 
-#' shinyDiveR:::run_app()
+#' if (interactive()){
+#'  shinyDiveR:::run_app()
+#' }
 #' 
 #' @docType package
 #' @name shinyDiveR
+#' @export
 run_app <- function(language = c("en","fr")) {
   # choosing language
-language <- match.arg(language)
-cat("Launching app with ", language, " language\n")
-options(shiny.lang = language)
-i18n <- Translator$new(translation_json_path = paste0(
-  .libPaths()[1],
-  "/shinyDiveR/app/translations/translation.json"
-))
-i18n$set_translation_language(language)
-  shinyApp(ui = app_ui(i18n), server = app_server)
+  language <- match.arg(language)
+  cat("Launching app with ", language, " language\n")
+  options(shiny.lang = language)
+  
+  shinyApp(ui = app_ui(), server = app_server)
 }
 
 
