@@ -18,6 +18,8 @@ A package to code some basic function about dive profiles.
 Function to run the application
 }
 \examples{
-shinyDiveR:::run_app()
+if (interactive()){
+ shinyDiveR:::run_app()
+}
 
 }

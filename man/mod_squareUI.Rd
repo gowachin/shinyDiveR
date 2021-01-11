@@ -24,6 +24,12 @@ mod_summarisediveServer(id, i18n, dive)
 
 \item{i18n}{traduction language}
 
+\item{sec_plot}{input of square module if there is a second dive or not}
+
+\item{dives}{a dive object created by the square module}
+
+\item{r}{list passing objects from module to modules}
+
 \item{dive}{a dive object created by the mn90 package}
 }
 \description{
@@ -44,7 +50,7 @@ library(lubridate)
 library(mn90)
 library(shinyWidgets)
 if (interactive()){
-i18n <- Translator$new(translation_json_path = "inst/app/translations/translation.json")
+i18n <- shinyDiveR::i18n
 i18n$set_translation_language('en')
 ui <- fluidPage(
   mod_squareUI('square', i18n)
