@@ -46,17 +46,18 @@ Despite using diving table as base for computation, no output from this applicat
 
 ## Actual in work part
 
-Consumption part of shiny (plot.conso, more text, reactive slider for pression etc)
-TODO : make a module for rules !
+Consumption part of shiny (more text, reactive slider for pression etc)
+TODO : make a module for rules and use them more in conso !
 
 ## To do : 
 
 - Complete README when shiny in prod and examples.
 
 ### Shiny 
+- beautiful css
 - change maximum depth for consecutive dives in shiny
-- modify advanced parameters for screen
-- push shiny in prod
+- modify advanced parameters for screen (inlinge parameters)
+- push shiny in rsconnect prod
 - checkbox to force inverse profile or 60+ dive !
 
 Feel free to fork this, and use it. Any recommendation is welcome :) 

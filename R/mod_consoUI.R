@@ -1,6 +1,6 @@
 #' @import shiny
 #' @import lubridate
-#' @import mn90
+#' @import DiveR
 #' @import graphics
 NULL
 
@@ -16,17 +16,18 @@ mod_consoUI <- function(id, i18n){
   ns <- NS(id)
   
   out <- tagList(
-    'dev1' = sidebarLayout(
+    p(''),
+    sidebarLayout(
       position = "right",
       ### Sidebar panel for inputs ####
       sidebarPanel(
         id = ns("sidebar"),
         helpText(paste(
-          i18n$t("You can input a dive with a depth and time")
+          i18n$t("")
         )),
         conditionalPanel(# hidden checkbox !
-          'false', ns = ns, checkboxInput(ns("sec_plot"), i18n$t("sec_plot"), 
-                                          FALSE)
+          'false', ns = ns, 
+          checkboxInput(ns("sec_plot"), i18n$t("sec_plot"), FALSE)
         ),
                          
         # fucking conditionnal panel not working as i want
@@ -118,13 +119,15 @@ mod_consoServer <- function(id, i18n, sec_plot, dives, r){
     id,
     ## Below is the module function
     function(input, output, session) {
+      
       # compute the interval in minuyte ----
       if (!app_prod()){
         cat('\n\nconso start\n')
         print(names(input))
         print(input$conso_selec)
         print(dives$dive2)
-        }
+      }
+      
       if (r$sec_plot){ # select the dive
         updateCheckboxInput(session, "sec_plot", "sec_plot", TRUE)
         conso_dive <- switch(input$conso_selec,
@@ -134,18 +137,15 @@ mod_consoServer <- function(id, i18n, sec_plot, dives, r){
         conso_dive <- dives
       }
       if (!app_prod()){cat('compute conso\n')} # bug here in the conso part! see package
-      print(conso_dive)
       dt_conso <- conso(dive = conso_dive, bloc = bloc(input$volume, input$press), 
                         cons = input$cons, 
                         mid = input$rule1_press, reserve = input$rule2_press)
+      print(dt_conso)
       # plot consuption
       if (!app_prod()){cat('make plot\n')}
       output$plot_conso <- renderPlot({
-        # plot(1,1, main = 'dev plot')
-        plot(conso_dive, ylab = i18n$t("Depth (m)"), xlab = i18n$t("Time (min)"))
-        lines(dt_conso$dtcurve$time, -dt_conso$vpress/ 12, col = 'blue')
-        abline(v= dt_conso$time_mid[2], col = "orange")
-        abline(v= dt_conso$time_reserve[2], col = "red")
+        plot(dt_conso, ylab = i18n$t("Pressure (bar)"), 
+             xlab = i18n$t("Time (min)"))
       })
     }
   )

@@ -7,7 +7,7 @@ options(app.prod = FALSE) # TRUE = production mode, FALSE = development mode
 library(shiny)
 library(shiny.i18n)
 library(lubridate)
-library(mn90)
+library(DiveR)
 library(shinyWidgets)
 if (interactive()){
   i18n <- Translator$new(translation_json_path = paste0(.libPaths()[1],"/shinyDiveR/app/translations/translation.json"))

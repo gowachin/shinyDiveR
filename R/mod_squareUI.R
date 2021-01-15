@@ -1,6 +1,6 @@
 #' @import shiny
 #' @import lubridate
-#' @import mn90
+#' @import DiveR
 NULL
 
 #' @title   mod_squareUI
@@ -13,7 +13,7 @@ NULL
 #' library(shiny)
 #' library(shiny.i18n)
 #' library(lubridate)
-#' library(mn90)
+#' library(DiveR)
 #' library(shinyWidgets)
 #' if (interactive()){
 #' i18n <- shinyDiveR::i18n
@@ -135,12 +135,8 @@ mod_squareServer <- function(id, i18n, r){
         updateSliderInput(session, "time1", value = tmp, min = 1, max = maxt1)
       }
       ################ Compute dive 1 ################
-      if(!app_prod()) {
-        hour <- minute(input$'adv_param-time_input1') + 
-          60 * hour(input$'adv_param-time_input1')
-      } else {
-        hour <- 0
-      }
+      hour <- minute(input$'adv_param-time_input1') + 
+        60 * hour(input$'adv_param-time_input1')
       dive1 <- dive(
         depth = input$depth1, time = input$time1,
         secu = input$'adv_param-secu', vup = input$'adv_param-vup',

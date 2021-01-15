@@ -47,7 +47,7 @@ Shiny module for square profile
 library(shiny)
 library(shiny.i18n)
 library(lubridate)
-library(mn90)
+library(DiveR)
 library(shinyWidgets)
 if (interactive()){
 i18n <- shinyDiveR::i18n

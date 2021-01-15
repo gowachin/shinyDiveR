@@ -9,4 +9,4 @@ options(shiny.lang = 'en') # change language 'fr' or 'en' supported by app
 options(app.prod = T) # TRUE = production mode, FALSE = development mode
 shiny::runApp('inst/app') # lance l'application
 
-# devtools::install_github('https://github.com/gowachin/mn90')
+# devtools::install_github('https://github.com/gowachin/DiveR')

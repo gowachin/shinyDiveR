@@ -16,7 +16,7 @@ Imports: graphics,
          shinyTime,
          lubridate,
          shinyWidgets,
-         mn90,
+         DiveR,
          rhandsontable,
          pkgload
 RoxygenNote: 7.1.1

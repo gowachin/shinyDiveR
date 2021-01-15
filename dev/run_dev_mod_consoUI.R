@@ -3,14 +3,14 @@ suppressWarnings(lapply(paste('package:', names(sessionInfo()$otherPkgs), sep = 
 rm(list = ls(all.names = TRUE))
 devtools::document('.')
 devtools::load_all('.')
-options(app.prod = FALSE) # TRUE = production mode, FALSE = development mode
+options(app.prod = T) # TRUE = production mode, FALSE = development mode
 library(shiny)
 library(shiny.i18n)
 library(lubridate)
-library(mn90)
+library(DiveR)
 library(shinyWidgets)
 if (interactive()){
-  i18n <- Translator$new(translation_json_path = paste0(.libPaths()[1],"/shinyDiveR/app/translations/translation.json"))
+  i18n <- shinyDiveR::i18n
   i18n$set_translation_language('fr')
   
   ui <- fluidPage(
@@ -27,3 +27,5 @@ if (interactive()){
   }
   shinyApp(ui, server)
 }
+
+

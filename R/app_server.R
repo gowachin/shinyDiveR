@@ -11,6 +11,7 @@ app_server <- function(input, output,session) {
   
   observe({
     r$dives <- mod_squareServer('square', i18n, r)
+    # mod_consoServer('conso', i18n, input$"square-sec_plot", r$dives, r)
   })
   
 }

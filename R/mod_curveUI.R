@@ -1,5 +1,5 @@
 #' @import shiny
-#' @import mn90
+#' @import DiveR
 #' @import rhandsontable
 NULL
 

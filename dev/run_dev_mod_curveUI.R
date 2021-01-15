@@ -6,7 +6,7 @@ devtools::load_all('.')
 options(app.prod = FALSE) # TRUE = production mode, FALSE = development mode
 library(shiny)
 library(shiny.i18n)
-library(mn90)
+library(DiveR)
 library(shinyWidgets)
 library(rhandsontable)
 if (interactive()){

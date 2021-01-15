@@ -40,15 +40,8 @@ mod_advparamInput <- function(id, i18n){
       ),
       # checkboxInput("secu", i18n$t("Security stop"), TRUE),
       numericInput(ns("vup"), i18n$t("Ascent speed:"), 10, min = 1),
-      # 'dev1' = timeInput(ns("time_input1"), i18n$t("Immersion time"),
-      #           value = strptime("00:00:00", "%T"), seconds = FALSE
-      # )
-    ),
-    'dev1' = conditionalPanel(
-      condition = "input.advset", ns = ns,
-      numericInput(ns("vup"), i18n$t("Ascent speed:"), 10, min = 1),
       timeInput(ns("time_input1"), i18n$t("Immersion time"),
-                          value = strptime("00:00:00", "%T"), seconds = FALSE
+                value = strptime("00:00:00", "%T"), seconds = FALSE
       )
     )
   )
