@@ -3,7 +3,7 @@ suppressWarnings(lapply(paste('package:', names(sessionInfo()$otherPkgs), sep = 
 rm(list = ls(all.names = TRUE))
 devtools::document('.')
 devtools::load_all('.')
-options(app.prod = T) # TRUE = production mode, FALSE = development mode
+options(app.prod = F) # TRUE = production mode, FALSE = development mode
 library(shiny)
 library(shiny.i18n)
 library(lubridate)
@@ -14,6 +14,14 @@ if (interactive()){
   i18n$set_translation_language('fr')
   
   ui <- fluidPage(
+    # setSliderColor(c("DeepPink ", "#FF4500", "", "Teal", 'blue', 'orange'), c(1, 2, 4, 5)),
+    # chooseSliderSkin(
+    #   skin = c("Square"),#, "Flat", "Modern", "Nice", "Simple", "HTML5", "Round", "Square"),
+    #   color = NULL
+    # ),
+    # tags$head(tags$style(HTML('.irs-from, .irs-to, .irs-min, .irs-max {
+    #         visibility: hidden !important;
+    # }'))),
     mod_squareUI('square', i18n),
     mod_consoUI('conso', i18n)
   )

@@ -30,7 +30,6 @@ mod_consoUI <- function(id, i18n){
           checkboxInput(ns("sec_plot"), i18n$t("sec_plot"), FALSE)
         ),
                          
-        # fucking conditionnal panel not working as i want
         conditionalPanel(
           condition = "input.sec_plot == true", ns = ns,
           selectInput(
@@ -125,7 +124,7 @@ mod_consoServer <- function(id, i18n, sec_plot, dives, r){
         cat('\n\nconso start\n')
         print(names(input))
         print(input$conso_selec)
-        print(dives$dive2)
+        print(r)
       }
       
       if (r$sec_plot){ # select the dive

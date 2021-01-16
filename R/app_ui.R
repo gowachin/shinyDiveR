@@ -19,6 +19,11 @@ app_ui <- function() {
     #   type = "text/css",
     #   href = "bootstrap.css"
     # )),
+    # setSliderColor(c("DeepPink ", "#FF4500", "", "Teal"), c(1, 2, 4, 5)),
+    # setSliderColor(c("DeepPink ", "#FF4500", "", "Teal", 'blue', 'orange'), c(1, 2, 4, 5)),
+    chooseSliderSkin(
+      skin = c("Flat")#, "Flat", "Modern", "Nice", "Simple", "HTML5", "Round", "Square"),
+    ),
     ####
     # checkboxInput("help", i18n$t("hepl"), FALSE),
     img(src = 'DiveR_hex.png', height = 100, width = 100),
