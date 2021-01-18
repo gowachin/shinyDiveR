@@ -21,10 +21,10 @@
       {"en": "Recommended speed for propper desaturation is between 10 and 15 m/min", "fr": "La vitese recommendée pour une désaturation au tables se site entre 10 et 15 m/min"},
       {"en": "Ascent speed:", "fr": "Vitesse de remontée"},
       {"en": "Immersion time", "fr": "Heure d'immersion"},
-      {"en": "Interval time", "fr": "Temps d'intervel"},
+      {"en": "Interval time", "fr": "Temps d'interval"},
       {"en": "%s%d minutes at %d meters", "fr": "%s%d minutes à %d metres"},
       
-      {"en": "The first dive reach ", "fr": "La première plongée atteins "},
+      {"en": "The first dive reach ", "fr": "La première plongée atteint "},
       {"en": " meters for a duration of ", "fr": " metres pour une durée de "},
       {"en": "Total dive time is ", "fr": "Le temps total de plongée est de "},
       {"en": " minutes with an ascent of ", "fr": " minutes avec un temps de remontée de "},
@@ -37,6 +37,11 @@
       {"en": "This depth is not possible for a consecutive dive.", "fr": "Cette profondeur n'est pas possible pour une plongée consecutive"},
       
       
-      {"en": "Consumption", "fr": "Consommation"}
+      {"en": "Consumption", "fr": "Consommation"},
+      
+      
+      {"en": "Disclaimer : This application is intended for use in education about scubadiving planification only. It is not designed for actual use in scuba diving and underwater activity. It is emphatically not suitable for use in actual diving. Scuba diving is a dangerous activity with risks of death and serious injury. No-one should attempt scuba diving without training, certification, supervision and regular medical assessment. It is also dangerous for trained scuba divers to exceed the limitations of their training.", "fr": "Avertissement : Cette application est destinée à être utilisée uniquement dans le cadre de l'enseignement de la planification de la plongée sous-marine. Elle n'est pas conçue pour une utilisation réelle dans le cadre de la plongée sous-marine et des activités sous-marines. Elle n'est absolument pas adaptée à une utilisation réelle en plongée. La plongée sous-marine est une activité dangereuse qui comporte des risques de mort et de blessures graves. Personne ne doit tenter de faire de la plongée sous-marine sans formation, certification, supervision et évaluation médicale régulière. Il est également dangereux pour les plongeurs formés de dépasser les limites de leur formation."},
+      
+      {"en": "This application will provide planification about dive profile and air consumption, without giving any warning if the activity would be dangerous or fatal. The author does not warrant that the application is correct in any sense whatsoever.", "fr": "Cette application fournira une planification sur le profil de plongée et la consommation d'air, sans donner aucun avertissement si l'activité serait dangereuse ou fatale. L'auteur ne garantit pas que l'application est correcte dans quelque sens que ce soit."}
     ]
 }

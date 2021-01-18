@@ -56,7 +56,7 @@ mod_squareUI <- function(id, i18n){
         ),
         # hr(style = "border-color: #766812;"),
         # Input: checkbox second dive ----
-        checkboxInput(ns("sec"), i18n$t("Second Dive")),
+        checkboxInput(ns("sec"), i18n$t("Second dive")),
         # Second dive ####
         conditionalPanel(
           condition = "input.sec == true", ns = ns,
