@@ -53,11 +53,21 @@
 .irs-grid-text {color: #839496}
 .irs-grid-pol {background: #839496}
 
+/*! Verbatims */
+#square-dive, 
+#square-dive2{
+  background-color: #073642;
+  border-color: #268bd2;
+}
+
+
 /*!
 #select1 {
   border: 2px solid #dd4b39;
+  background-color:blue
 }
 */
+
 
 .tabbable > .nav > li > a                  {background-color: #766812;  color:white}
 /*!.tabbable > .nav > li > a[data-value='t1'] {background-color: red;   color:white} */

@@ -27,10 +27,25 @@ app_ui <- function() {
     # chooseSliderSkin( skin = c("Modern"), color = NULL), #'#766812'), 
     # # colors 
     setSliderColor(rep(c("#2a8dd2", "#cc4f1c"),2), c(1, 2, 3, 4)), # Depth
-    ####
+    
+    tags$head(tags$link(rel="shortcut icon", href="DiveR_hex.png")),
+    #### TITLE ###
     # checkboxInput("help", i18n$t("hepl"), FALSE),
-    img(src = 'DiveR_hex.png', height = 100, width = 100),
-    hr(style = "border-color: #766812;"),
+    titlePanel(title=div(img(src="DiveR_hex.png", height = 70),
+                         i18n$t("Dive planification tool")), 
+               windowTitle = "DiveR"),
+    # fluidRow(
+    #   column(2, img(src = 'DiveR_hex.png', height = 852/8, width = 735/8)),
+    #   
+    #   column(10, #align = "right",
+    #          # hr(style = "border-color: #cbcbcb;"),
+    #          br(),br(),
+    #          h1(i18n$t('Dive planification tool')),
+    #          h4(i18n$t(paste('This application is programmed for computing',
+    #                          'dive curve and presenting them.')))
+    #   )
+    # ),
+    # hr(style = "border-color: #766812;"),
     
     tabsetPanel(
       type = "pills",
@@ -43,19 +58,19 @@ app_ui <- function() {
           condition = "false",
           checkboxInput("sec_plot", "plot second dive", FALSE)
         )
-      ),
-      tabPanel(
-        i18n$t("Consumption"),
-          h1('In work')
-        # mod_consoUI('conso', i18n)
-      )
+      )#,
+      # tabPanel(
+      #   i18n$t("Consumption"),
+      #     h1('In work')
+      #   # mod_consoUI('conso', i18n)
+      # )
     ),
     hr(style = "border-color: #766812;"),
     fluidRow(
       column(5,                 # tags$a(href = "https://www.cteeter.ca", 'Chris Teeter', target = '_blank')
              p("App created by Maxime Jaunatre in January 2020", HTML("&bull;"),
                "Find the code on Github:", tags$a(href = "https://github.com/gowachin/shinyDiveR", tags$i(class = 'fa fa-github', style = 'color:#bd971e'), target = '_blank'), style = "font-size: 85%"),
-             p("Have a question? Spot an error? Send an email ", tags$a(href = "mailto:maxime.jaunatre@yahoo.fr", tags$i(class = 'fa fa-envelope', style = 'color:#bd971e'), target = '_blank'), style = "font-size: 85%"),
+             p("Have a question? Spot an error? Report an issue on Github or send an email ", tags$a(href = "mailto:maxime.jaunatre@yahoo.fr", tags$i(class = 'fa fa-envelope', style = 'color:#bd971e'), target = '_blank'), style = "font-size: 85%"),
              p(tags$em("Last updated: January 2020"), style = 'font-size:75%')),
 
       column(7, #align = "right",

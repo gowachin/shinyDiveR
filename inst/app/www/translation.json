@@ -1,6 +1,8 @@
 {
   "languages": ["en", "fr"],
   "translation": [
+    {"en": "Dive planification tool", "fr": "Planification de plongée"},
+    
     {"en": "Dive Profile", "fr": "Profil de plongée"},
     {"en": "You can input a dive with a depth and time", "fr": "Il est possible de définir une plongée par son temps et sa profondeur"},
     {"en": "or input multiple time/depths points","fr": "(Square) ou par une table profondeur-durée"},
@@ -14,7 +16,7 @@
       {"en": "Depth (m)", "fr": "Profondeur (m)"},
       {"en": "Time (min):", "fr": "Temps (min)"},
       {"en": "Security stop", "fr": "Palier de sécurité"},
-      {"en": "Second Dive", "fr": "Seconde plongée"},
+      {"en": "Second dive", "fr": "Seconde plongée"},
       {"en": "Advanced settings", "fr": "Paramètres avancés"},
       {"en": "Recommended speed for propper desaturation is between 10 and 15 m/min", "fr": "La vitese recommendée pour une désaturation au tables se site entre 10 et 15 m/min"},
       {"en": "Ascent speed:", "fr": "Vitesse de remontée"},
@@ -25,7 +27,7 @@
       {"en": "The first dive reach ", "fr": "La première plongée atteins "},
       {"en": " meters for a duration of ", "fr": " metres pour une durée de "},
       {"en": "Total dive time is ", "fr": "Le temps total de plongée est de "},
-      {"en": " minutes with an ascent of ", "fr": " minutes avec \nun temps de remontée de "},
+      {"en": " minutes with an ascent of ", "fr": " minutes avec un temps de remontée de "},
       {"en": " stops :", "fr": " paliers :"},
       {"en": "The dive group is ", "fr": "Le groupe de plongée est "},
       {"en": "The dive majoration is ", "fr": "La majoration de cette plongée est de "},

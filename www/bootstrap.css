@@ -42,6 +42,38 @@
   --font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+/*! Modifications*/
+#square-sidebar {
+  background-color: #073642;
+  border-color: #766812;
+  color: white;
+}
+
+/*! sliderinput colors modifs */
+.irs-grid-text {color: #839496}
+.irs-grid-pol {background: #839496}
+
+/*! Verbatims */
+#square-dive, 
+#square-dive2{
+  background-color: #073642;
+  border-color: #268bd2;
+}
+
+
+/*!
+#select1 {
+  border: 2px solid #dd4b39;
+  background-color:blue
+}
+*/
+
+
+.tabbable > .nav > li > a                  {background-color: #766812;  color:white}
+/*!.tabbable > .nav > li > a[data-value='t1'] {background-color: red;   color:white} */
+.tabbable > .nav > li[class=active]    > a {background-color: #bd971e; color:white}
+
+/*! Modifications*/
 
 *,
 *::before,

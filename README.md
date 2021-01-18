@@ -54,9 +54,9 @@ TODO : make a module for rules and use them more in conso !
 - Complete README when shiny in prod and examples.
 
 ### Shiny 
-- beautiful css
+- traduction of disclaimer
 - change maximum depth for consecutive dives in shiny
-- modify advanced parameters for screen (inlinge parameters)
+- modify advanced parameters for screen (inligne parameters)
 - push shiny in rsconnect prod
 - checkbox to force inverse profile or 60+ dive ! -> check restricted bar on shinywidgets
 - look for axis break and plotclick

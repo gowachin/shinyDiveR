@@ -54,12 +54,14 @@ mod_squareUI <- function(id, i18n){
           inputId = ns("time1"), label = i18n$t("Time (minutes):"),
           min = 1, max = 180, value = 40
         ),
+        # hr(style = "border-color: #766812;"),
         # Input: checkbox second dive ----
         checkboxInput(ns("sec"), i18n$t("Second Dive")),
         # Second dive ####
         conditionalPanel(
           condition = "input.sec == true", ns = ns,
           # Input: Slider for depths ----
+          titlePanel(i18n$t("Second dive")),
           timeInput(ns("interv"), i18n$t("Interval time"),
                     value = strptime("12:01:00", "%T"), seconds = FALSE
           ),
