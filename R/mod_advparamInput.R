@@ -39,6 +39,10 @@ mod_advparamInput <- function(id, i18n){
         onStatus = "success", offStatus = "danger"
       ),
       # checkboxInput("secu", i18n$t("Security stop"), TRUE),
+      helpText(
+        i18n$t(paste0("Recommended speed for propper desaturation ",
+                      "is between 10 and 15 m/min"))
+      ),
       numericInput(ns("vup"), i18n$t("Ascent speed:"), 10, min = 1),
       timeInput(ns("time_input1"), i18n$t("Immersion time"),
                 value = strptime("00:00:00", "%T"), seconds = FALSE

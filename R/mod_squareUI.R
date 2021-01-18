@@ -88,7 +88,8 @@ mod_squareUI <- function(id, i18n){
         )
       ),
       mainPanel(
-        plotOutput(outputId = ns("divePlot")),
+        plotOutput(outputId = ns("divePlot")), # click = ns("plot_pos")),
+        # verbatimTextOutput(ns("info")),
         verbatimTextOutput(outputId = ns("dive")),
         conditionalPanel(
           condition = "input.sec == true", ns = ns,
@@ -122,7 +123,6 @@ mod_squareServer <- function(id, i18n, r){
     function(input, output, session) {
       # compute the interval in minuyte ----
       if (!app_prod()){cat('square start\n')}
-      print(input$interv)
       interv <- minute(input$interv) +
         60 * hour(input$interv)
       maxt1 <- max_depth_t(input$depth1)
@@ -225,7 +225,8 @@ mod_squareServer <- function(id, i18n, r){
         if (!app_prod()){cat("    single\n")}
         # Plot the dive
         output$divePlot <- renderPlot({
-          plot(dive1, ylab = i18n$t("Depth (m)"), xlab = i18n$t("Time (min)"))
+          plot(dive1, ylab = i18n$t("Depth (m)"), xlab = i18n$t("Time (min)"),
+               def_cols = TRUE)
         })
         # Dive summary
         output$dive <- mod_summarisediveServer('dive1', i18n, dive1)
@@ -245,7 +246,7 @@ mod_squareServer <- function(id, i18n, r){
         # Plot the dive
         output$divePlot <- renderPlot({
           plot(mult_dive, ylab = i18n$t("Depth (m)"), 
-               xlab = i18n$t("Time (min)"))
+               xlab = i18n$t("Time (min)"), def_cols = TRUE)
         })
         # Dive summary
         output$dive <- mod_summarisediveServer('dive1', i18n, mult_dive$dive1)
@@ -257,6 +258,23 @@ mod_squareServer <- function(id, i18n, r){
         r$dives <- mult_dive
       }
     
+      # if (!app_prod()){
+      # output$info <- renderText({
+      #   if(is.null(input$plot_pos$x)){
+      #     x <- ''
+      #     y <- ''
+      #   } else {
+      #     if(input$plot_pos$x < 0){x <- ''} else {
+      #       x <- minute_to_time(input$plot_pos$x, sec = TRUE, sep = c("h"))
+      #     }
+      #     y <- round(input$plot_pos$y, 1)
+      #   }
+      #   paste(i18n$t("You can click to obtain position values \n"),
+      #         i18n$t("Time (min)"), x,'\n', 
+      #         i18n$t("Depth (m)"), y)
+      # })
+      # }
+      
     }
   )
 }

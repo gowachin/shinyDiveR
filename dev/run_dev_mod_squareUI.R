@@ -3,7 +3,7 @@ suppressWarnings(lapply(paste('package:', names(sessionInfo()$otherPkgs), sep = 
 rm(list = ls(all.names = TRUE))
 devtools::document('.')
 devtools::load_all('.')
-options(app.prod = FALSE) # TRUE = production mode, FALSE = development mode
+options(app.prod = T) # TRUE = production mode, FALSE = development mode
 library(shiny)
 library(shiny.i18n)
 library(lubridate)

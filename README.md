@@ -58,7 +58,8 @@ TODO : make a module for rules and use them more in conso !
 - change maximum depth for consecutive dives in shiny
 - modify advanced parameters for screen (inlinge parameters)
 - push shiny in rsconnect prod
-- checkbox to force inverse profile or 60+ dive !
+- checkbox to force inverse profile or 60+ dive ! -> check restricted bar on shinywidgets
+- look for axis break and plotclick
 
 Feel free to fork this, and use it. Any recommendation is welcome :) 
 
