@@ -1,5 +1,4 @@
 #' @import shiny
-#'
 app_server <- function(input, output,session) {
   # setting language
   language <- getOption( "shiny.lang")

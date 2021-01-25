@@ -3,7 +3,6 @@
 #' @import shinyTime
 #' 
 #' @param i18n traduction language
-#' 
 app_ui <- function() {
   language <- getOption( "shiny.lang")
   if (! language %in% c('en','fr')) language <- 'en'
@@ -12,8 +11,10 @@ app_ui <- function() {
   
   
   fluidPage(
+    # addResourcePath('www', system.file("www", package = "shinyDiveR")),
     #### CSS ####
     theme = "bootstrap.css",
+    # theme = system.file("app/www/bootstrap.css", package = "shinyDiveR"),
     # Slider hide border values
     tags$head(tags$style(HTML('.irs-from, .irs-to, .irs-min, .irs-max {
             visibility: hidden !important;
