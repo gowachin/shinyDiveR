@@ -61,7 +61,7 @@ app_ui <- function() {
                tags$a(href = "mailto:maxime.jaunatre@yahoo.fr", 
                       tags$i(class = 'fa fa-envelope', style = 'color:#bd971e'),
                       target = '_blank'), style = "font-size: 85%"),
-             p(tags$em("Last updated: January 2020"), style = 'font-size:75%')),
+             p(tags$em("Last updated: January 2021"), style = 'font-size:75%')),
 
       column(7, #align = "right",
              # hr(style = "border-color: #cbcbcb;"),
