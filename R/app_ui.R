@@ -9,6 +9,12 @@ app_ui <- function() {
   i18n <- shinyDiveR::i18n
   i18n$set_translation_language(language)
   
+  maxd <- getOption("shiny.maxd")
+  if(is.null(maxd) | maxd > 65){
+    maxd <- c(65, 60)
+  } else {
+    maxd <- rep(maxd, 2)
+  }
   
   fluidPage(
     # addResourcePath('www', system.file("app/www", package = "shinyDiveR")),
@@ -36,7 +42,7 @@ app_ui <- function() {
       #### Dive profile panel ####
       tabPanel(p(i18n$t("Dive Profile"),icon("water")),
         # i18n$t("Dive Profile"),
-        mod_squareUI('square', i18n),
+        mod_squareUI('square', i18n, maxd),
         ## invisible panel
         conditionalPanel(
           condition = "false",

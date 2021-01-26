@@ -13,7 +13,7 @@ mod_consoServer(id, i18n, sec_plot, dives, r)
 
 mod_curveServer(id, i18n)
 
-mod_squareUI(id, i18n)
+mod_squareUI(id, i18n, maxd)
 
 mod_squareServer(id, i18n, r)
 
@@ -29,6 +29,8 @@ mod_summarisediveServer(id, i18n, dive)
 \item{dives}{a dive object created by the square module}
 
 \item{r}{list passing objects from module to modules}
+
+\item{maxd}{a maximum depth vector for 2 dives, given by diver level.}
 
 \item{dive}{a dive object created by the mn90 package}
 }

@@ -4,7 +4,8 @@ suppressWarnings(lapply(paste('package:', names(sessionInfo()$otherPkgs), sep = 
 rm(list = ls(all.names = TRUE))# vide l'environneent
 devtools::document('.') # genere NAMESPACE et man
 devtools::load_all('.') # charge le package
-options(shiny.lang = 'fr') # change language 'fr' or 'en' supported by app
+options(shiny.maxd = 40)
+options(shiny.lang = 'fr')# change language 'fr' or 'en' supported by app
 options(app.prod = T) # TRUE = production mode, FALSE = development mode
 shiny::runApp('inst/app') # lance l'application
 

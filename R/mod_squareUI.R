@@ -8,6 +8,7 @@ NULL
 #'
 #' @param id shiny id
 #' @param i18n traduction language
+#' @param maxd a maximum depth vector for 2 dives, given by diver level.
 #' 
 #' @examples
 #' library(shiny)
@@ -30,7 +31,8 @@ NULL
 #' }
 #' 
 #' @export
-mod_squareUI <- function(id, i18n){
+mod_squareUI <- function(id, i18n, maxd){
+  
   ns <- NS(id)
   
   out <- tagList(
@@ -47,7 +49,7 @@ mod_squareUI <- function(id, i18n){
         # Input: Slider for depths ----
         sliderInput(
           inputId = ns("depth1"), label = i18n$t("Depth (meter):"),
-          min = 6, max = 65, value = 20
+          min = 6, max = maxd[1], value = 20
         ),
         # Input: Slider for time ----
         sliderInput(
@@ -69,7 +71,7 @@ mod_squareUI <- function(id, i18n){
             condition = "input.ghost_sec == true", ns = ns,
             sliderInput(
               inputId = ns("depth2"), label = i18n$t("Depth (meter):"),
-              min = 6, max = 60, value = 20
+              min = 6, max = maxd[2], value = 20
             ),
             # Input: Slider for time ----
             conditionalPanel(
