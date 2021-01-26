@@ -11,7 +11,7 @@ app_ui <- function() {
   
   
   fluidPage(
-    # addResourcePath('www', system.file("www", package = "shinyDiveR")),
+    # addResourcePath('www', system.file("app/www", package = "shinyDiveR")),
     #### CSS ####
     theme = "bootstrap.css",
     # theme = system.file("app/www/bootstrap.css", package = "shinyDiveR"),
