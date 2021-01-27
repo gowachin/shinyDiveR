@@ -7,12 +7,10 @@
 app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
-    golem_add_external_resources(
-      favicon(ext = 'png')
-    ),
+    golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
-      h1("golem")
+      h1("dive simulateur 200")
     )
   )
 }
@@ -32,10 +30,10 @@ golem_add_external_resources <- function(){
   )
  
   tags$head(
-    favicon(),
+    favicon(ext = 'png'),
     bundle_resources(
       path = app_sys('app/www'),
-      app_title = 'golem'
+      app_title = 'shinyDiveR'
     )
     # Add here other external resources
     # for example, you can add shinyalert::useShinyalert() 

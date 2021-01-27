@@ -1,3 +1,6 @@
+#' @import rlang
+NULL
+
 #' Inverted versions of in, is.null and is.na
 #' 
 #' @noRd
