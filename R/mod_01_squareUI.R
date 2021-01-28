@@ -7,7 +7,7 @@
 #' @noRd 
 #'
 #' @importFrom shiny NS tagList 
-mod_squareUI_ui <- function(id){
+mod_01_squareUI_ui <- function(id){
   ns <- NS(id)
   tagList(
  
@@ -17,14 +17,14 @@ mod_squareUI_ui <- function(id){
 #' squareUI Server Function
 #'
 #' @noRd 
-mod_squareUI_server <- function(input, output, session){
+modi_01_squareUI_server <- function(input, output, session){
   ns <- session$ns
  
 }
     
 ## To be copied in the UI
-# mod_squareUI_ui("squareUI_ui_1")
+# mod_01_squareUI_ui("squareUI_ui_1")
     
 ## To be copied in the server
-# callModule(mod_squareUI_server, "squareUI_ui_1")
+# callModule(mod_01_squareUI_server, "squareUI_ui_1")
  

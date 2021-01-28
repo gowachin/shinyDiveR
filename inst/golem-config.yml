@@ -2,6 +2,8 @@ default:
   golem_name: shinyDiveR
   golem_version: 0.0.0.9000
   app_prod: no
+  app_lang: "en"
+  app_maxd: 65
 production:
   app_prod: yes
 dev:
