@@ -4,10 +4,12 @@
 \alias{run_app}
 \title{Run the Shiny Application}
 \usage{
-run_app(...)
+run_app(app_lang = c("en", "fr"), app_maxd = 65)
 }
 \arguments{
-\item{...}{A series of options to be used inside the app.}
+\item{app_lang}{the language for the app. 'en' by default.}
+
+\item{app_maxd}{maximum depth. Maximum and default value is 65.}
 }
 \description{
 Run the Shiny Application

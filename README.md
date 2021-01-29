@@ -31,13 +31,20 @@ french translation possible in settings.
 
 ## Installation
 
-You can install the released version of shinyDiveR from
+You can install the development version of shinyDiveR from
 [github](https://github.com/gowachin/shinyDiveR) with:
 
 ``` r
-library(devtools)
-devtools::install_github('https://github.com/gowachin/DiveR')
+# install.packages("devtools")
+devtools::install_github('https://github.com/gowachin/shinyDiveR')
+# or 
+# install.packages("remotes")
+remotes::install_github("gowachin/shinyDiveR")
 ```
+
+Below is an exemple of the application :
+
+<img src="https://raw.githubusercontent.com/gowachin/DiveR/master/inst/images/shinyDiveR.png" alt="screen" height=900px/>
 
 <!-- You can install the released version of shinyDiveR from [CRAN](https://CRAN.R-project.org) with:
 

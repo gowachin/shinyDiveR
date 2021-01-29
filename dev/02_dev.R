@@ -26,6 +26,7 @@ usethis::use_package( "DiveR" )
 # golem::add_module( name = "squareUI" ) # Name of the module
 # golem::add_module( name = "summarisedive" ) # Name of the module
 # golem::add_module( name = "advparaminput" ) # Name of the module
+# golem::add_module( name = "advparaminput" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates ftc_* and utils_*

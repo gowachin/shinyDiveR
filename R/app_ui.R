@@ -7,23 +7,11 @@
 #' @noRd
 app_ui <- function(request) {
   #### options ####
-  language <- getOption( "app_lang")
-  if (is.null(language)){
-    language <- 'en'
-    } else if (! language %in% c('en','fr')) language <- 'en'
-  
+  language <- golem::get_golem_options("app_lang")
   i18n <- shinyDiveR::i18n
   i18n$set_translation_language(language)
   
-  maxd <- getOption("app_maxd")
-  if(is.null(maxd)){
-    maxd <- c(65, 60)} else if(maxd[1] > 65){
-    maxd <- c(65, 60)
-  } else if(maxd[1] > 60) {
-    maxd <- c(maxd, 60)
-  }else {
-    maxd <- rep(maxd, 2)
-  }
+  maxd <- golem::get_golem_options("app_maxd")
   ############### #
   
   tagList(
@@ -31,6 +19,13 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
+      shiny.i18n::usei18n(i18n),
+      div(style = "float: right;",
+          selectInput('selected_language',
+                      "Change language",
+                      choices = i18n$get_languages(),
+                      selected = language)
+      ),
       #### UI general part ####
       # Hide slider border value
       tags$head(tags$style(HTML('.irs-from, .irs-to, .irs-min, .irs-max {
@@ -47,6 +42,14 @@ app_ui <- function(request) {
         windowTitle = "DiveR"),
       # hr(style = "border-color: #766812;"),
       #### Inside ####
+      #### temporary test ####
+      sliderInput('bins',
+        i18n$t("Dive Profile"),
+                  min = 1,
+                  max = 50,
+                  value = 30),
+      plotOutput(outputId = "divePlot"),
+      #####
       tabsetPanel(
         type = "pills",
         #### Dive profile panel ####
