@@ -31,7 +31,7 @@ Intended to be used by french dive student, traduction of the lexic is on it's w
 
 ## Installation
 
-You can install the development version of shinyDiveR from [github](https://github.com/gowachin/shinyDiveR) with:
+You can install the development version of `{shinyDiveR}` from [github](https://github.com/gowachin/shinyDiveR) with:
 
 ``` r
 # install.packages("devtools")
@@ -79,6 +79,7 @@ Refactorisation with golem
 Refactorisation with golem
 
 ### Shiny 
+- take a look at shiny 1.6 and clear/darktheme
 - change maximum depth for consecutive dives in shiny
 - modify advanced parameters for screen (inligne parameters)
 - checkbox to force inverse profile or 60+ dive ! -> check restricted bar on shinywidgets

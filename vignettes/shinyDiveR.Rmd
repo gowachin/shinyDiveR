@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-This shiny application has been build following the **{golem}** package instructions, on a framework written by ThinkR.
+This shiny application has been build following the `{golem}` package instructions, on a framework written by ThinkR.
 
 More ressources on the framework is present in the [package](https://rtask.thinkr.fr/fr/demarrer-avec-golem/) documentation and the [book](https://engineering-shiny.org/) written to explain the framework.
 
@@ -40,8 +40,8 @@ Please follow this guide before a pull-request on github. This is also a reminde
 You can add options to the shiny application. These options allow to set parameters for the application during all it's production.
 
 At this time, 2 options has been set :
-- **app_lang**, which can be set between 'en' and 'fr'. It allow a translation of the application. 
-- **app_maxd**, a numeric input allowing to define a maximum depth for all the app. It is used to restrict deeper depths for beginner student who do not need to study dive planification lower than their grades.
+- `app_lang`, which can be set between 'en' and 'fr'. It allow a translation of the application. 
+- `app_maxd`, a numeric input allowing to define a maximum depth for all the app. It is used to restrict deeper depths for beginner student who do not need to study dive planification lower than their grades.
 
 This options are set in the **R/run_app.R** file. You need to write them inside the function parameters, document them and add them to the **golem_opts** list. Don't forget to name the list element, this is the name to call them later on.
 
