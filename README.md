@@ -1,57 +1,67 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# DiveR <img src="https://raw.githubusercontent.com/gowachin/DiveR/master/inst/images/DiveR_hex.png" alt="logo" align="right" height=200px/>
+# ShinyDiveR application <img src="https://raw.githubusercontent.com/gowachin/DiveR/master/inst/images/DiveR_hex.png" alt="logo" align="right" height=200px/>
 
 <!-- badges: start -->
-<!-- [![R build status](https://github.com/gowachin/DiveR/workflows/R-CMD-check/badge.svg)](https://github.com/gowachin/DiveR/actions) -->
+<!-- [![R build status](https://github.com/gowachin/shinyDiveR/workflows/R-CMD-check/badge.svg)](https://github.com/gowachin/shinyDiveR/actions) -->
 
-[![](https://img.shields.io/badge/devel%20version-0.2.0.0-blue.svg)](https://github.com/gowachin/DiveR)
+[![](https://img.shields.io/badge/devel%20version-0.2.0.0-blue.svg)](https://github.com/gowachin/shinyDiveR)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-R package for dive planification tools. It contains functions and
-methods to represent dive curves, desaturation time and gas consumption.
-At this day, only mn90 tables models are coded for single, consecutive
-or successive dives. This mean all profile are square ones and only
-maximum depth and dive time are used to compute desaturation.
+R package and shiny application for dive planification tools. It
+contains functions and methods to represent dive curves, desaturation
+time and gas consumption. At this day, only mn90 tables models are coded
+for single, consecutive or successive dives. This mean all profile are
+square ones and only maximum depth and dive time are used to compute
+desaturation.
 
 **The shiny application is not yet in production.**
 
 Future parts are work in progress, like more precise planification setup
 with different depths and time input. Desaturation planification with
 other models are also planned along with maybe other gas than air
-supported for consumption.
+supported for consumption
 
 Intended to be used by french dive student, traduction of the lexic is
-on it’s way.
+on it’s way. For this part the shiny app is written in english with
+french translation possible in settings.
 
 ## Installation
 
-You can install the development version of `{DiveR}` from
-[github](https://github.com/gowachin/DiveR) with:
+You can install the development version of `{shinyDiveR}` from
+[github](https://github.com/gowachin/shinyDiveR) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github('https://github.com/gowachin/DiveR')
+devtools::install_github('https://github.com/gowachin/shinyDiveR')
 # or 
 # install.packages("remotes")
-remotes::install_github("gowachin/DiveR")
+remotes::install_github("gowachin/shinyDiveR")
 ```
 
-<!--
-## Usage
+Below is an exemple of the application :
 
-### Planning a single dive
+<img src="https://raw.githubusercontent.com/gowachin/shinyDiveR/golem/inst/images/shinyDiveR.png" alt="screen" height=900px/>
 
-Apart from default/advanced settings, a dive can be resumed by it's maximum depth and duration. For example, here is the default dive for this pacakge, a maximum depth at 20 meters for 40 minutes. Note here that despite going underwater at an altitude of -20, we use positive numeric values.
+<!-- You can install the released version of shinyDiveR from [CRAN](https://CRAN.R-project.org) with:
 
-dive(20,40)
+``` r
+install.packages("shinyDiveR")
+```
 
-### Planning a second dive
+## Example
 
-A second dive depends heavily on the first one as the desaturation is not perfect and residual azote will impact the second saturation. 
+This is a basic example which shows you how to solve a common problem:
+
+
+```r
+library(shinyDiveR)
+## basic example code
+```
+
 
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>. -->
 
@@ -76,30 +86,23 @@ not warrant that the application is correct in any sense whatsoever.
 Even if correctly computed, the predictions of a theoretical physical
 model may not be correct predictions.
 
-Note here that all dives simulated will also being at sea level.
-
 ## Actual in work part
 
-Refactorisation of Consumption, plot.conso for multi tank dives.
+Refactorisation with golem
 
 ## To do :
 
--   Complete README with examples
--   Redaction of vignettes
--   doc on new conso and dive functions
--   make a beautiful doc for every functions
--   desaturation with complex models
+Refactorisation with golem
 
-## Doc in work (mostly missing examples) :
+### Shiny
 
--   attributes summary.dive
-
--   conso bloc press\_time conso
-
--   deco majoration dtcurve
-
--   graphics plot.dive
-
--   mn90 mn90 dive ndive
+-   make a dependance map between modules and tabPanels
+-   take a look at the testthat package for more tests.
+-   take a look at shiny 1.6 and clear/darktheme
+-   change maximum depth for consecutive dives in shiny
+-   modify advanced parameters for screen (inligne parameters)
+-   checkbox to force inverse profile or 60+ dive ! -&gt; check
+    restricted bar on shinywidgets
+-   look for axis break and plotclick
 
 Feel free to fork this, and use it. Any recommendation is welcome :)
