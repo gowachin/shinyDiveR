@@ -12,17 +12,15 @@ app_ui <- function(request) {
   i18n$set_translation_language(language)
   
   maxd <- golem::get_golem_options("app_maxd")
-  ############### #
-  
+  ############### ####
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
+      #### Set language and choice ####
       shiny.i18n::usei18n(i18n),
-      div(style = "float: right;",
-          
-          tags$style(".chooselang {width: 80px}"),
+      div(style = "float: right;", tags$style(".chooselang {width: 80px}"),
           div(class = "chooselang",
               pickerInput(
             inputId = 'selected_language',
@@ -37,23 +35,16 @@ app_ui <- function(request) {
             )
           )
           ),
-          
-          # selectInput('selected_language',
-          #             "Change language",
-          #             choices = i18n$get_languages(),
-          #             selected = language),
-          # 
-          # tags$head(tags$style(HTML(".selectize-input {height: 10px; 
-          #                           width: 60px; font-size: 10px;}")))
       ),
+      
       #### UI general part ####
       # Hide slider border value
       tags$head(tags$style(HTML('.irs-from, .irs-to, .irs-min, .irs-max {
-            visibility: hidden !important;
-    }'))),
+            visibility: hidden !important; }'))),
       # Slider colors 
       shinyWidgets::setSliderColor(rep(c("#2a8dd2", "#cc4f1c"),2), 
                                    c(1, 2, 3, 4)),
+      
       #### TITLE ####
       # checkboxInput("help", i18n$t("hepl"), FALSE),
       titlePanel(
@@ -61,6 +52,7 @@ app_ui <- function(request) {
                   i18n$t("Dive planification tool")), 
         windowTitle = "DiveR"),
       # hr(style = "border-color: #766812;"),
+      
       #### Inside ####
       tabsetPanel(
         type = "pills",
@@ -82,10 +74,11 @@ app_ui <- function(request) {
         # )
       ),
       hr(style = "border-color: #766812;"),
+      
       #### End of page ####
       fluidRow(
         column(5, # tags$a(href = "https://www.cteeter.ca", 'Chris Teeter', target = '_blank')
-               p("App created by Maxime Jaunatre in January 2020", HTML("&bull;"),
+               p("App created by Maxime Jaunatre in January 2021", HTML("&bull;"),
                  "Find the code on Github:", 
                  tags$a(href = "https://github.com/gowachin/shinyDiveR", 
                         tags$i(class = 'fa fa-github', style = 'color:#bd971e'), 
@@ -94,7 +87,7 @@ app_ui <- function(request) {
                  tags$a(href = "mailto:maxime.jaunatre@yahoo.fr", 
                         tags$i(class = 'fa fa-envelope', style = 'color:#bd971e'),
                         target = '_blank'), style = "font-size: 85%"),
-               p(tags$em("Last updated: January 2021"), style = 'font-size:75%')),
+               p(tags$em("Last updated: Februrary 2021"), style = 'font-size:75%')),
         
         column(7, #align = "right",
                # hr(style = "border-color: #cbcbcb;"),
