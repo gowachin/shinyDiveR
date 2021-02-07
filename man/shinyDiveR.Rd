@@ -6,11 +6,13 @@
 \alias{run_app}
 \title{shinyDiveR}
 \usage{
-run_app(language = c("en", "fr"))
+run_app(language = c("en", "fr"), maxd = 65)
 }
 \arguments{
 \item{language}{'en' by default, option to choose the language to run the app
 with. Choice between 'en' and 'fr' (english, french).}
+
+\item{maxd}{65 by default, maximum depths}
 }
 \description{
 A package to code some basic function about dive profiles.

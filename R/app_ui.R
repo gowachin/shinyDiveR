@@ -10,7 +10,7 @@ app_ui <- function() {
   i18n$set_translation_language(language)
   
   maxd <- getOption("shiny.maxd")
-  if(is.null(maxd) | maxd > 65){
+  if(maxd > 65){
     maxd <- c(65, 60)
   } else {
     maxd <- rep(maxd, 2)

@@ -18,7 +18,8 @@ Imports: graphics,
          shinyWidgets,
          DiveR,
          rhandsontable,
-         pkgload
+         pkgload,
+         config
 RoxygenNote: 7.1.1
 Depends: R (>= 2.10)
 Suggests: 
