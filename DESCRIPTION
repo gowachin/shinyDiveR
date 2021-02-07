@@ -18,7 +18,8 @@ Imports:
     shinyTime,
     lubridate,
     shinyWidgets,
-    DiveR
+    DiveR,
+    pkgload
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

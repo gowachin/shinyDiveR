@@ -11,3 +11,5 @@ dev
 app.R
 rsconnect
 www
+^app\.R$
+^rsconnect$
