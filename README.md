@@ -1,64 +1,108 @@
-# ShinyDiveR application
 
-<img src="https://raw.githubusercontent.com/gowachin/DiveR/master/inst/images/DiveR_hex.png" alt="logo" align="right" height=200px/>
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# ShinyDiveR application <img src="https://raw.githubusercontent.com/gowachin/DiveR/master/inst/images/DiveR_hex.png" alt="logo" align="right" height=200px/>
 
 <!-- badges: start -->
+<!-- [![R build status](https://github.com/gowachin/shinyDiveR/workflows/R-CMD-check/badge.svg)](https://github.com/gowachin/shinyDiveR/actions) -->
 
-<!-- [![](https://img.shields.io/github/languages/code-size/villegar/dive.svg)](https://github.com/villegar/dive) -->
-
-[![R build
-status](https://github.com/villegar/dive/workflows/R-CMD-check/badge.svg)](https://github.com/villegar/dive/actions)
-[![](https://img.shields.io/badge/devel%20version-0.0.1-blue.svg)](https://github.com/villegar/dive)
+[![](https://img.shields.io/badge/devel%20version-0.1.0-blue.svg)](https://github.com/gowachin/shinyDiveR)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-R package and shiny application for dive planification tools. It contains functions and methods to represent dive curves, desaturation time and gas consumption. At this day, only mn90 tables models are coded for single, consecutive or successive dives. This mean all profile are square ones and only maximum depth and dive time are used to compute desaturation.
+R package and shiny application for dive planification tools. It
+contains functions and methods to represent dive curves, desaturation
+time and gas consumption. At this day, only mn90 tables models are coded
+for single, consecutive or successive dives. This mean all profile are
+square ones and only maximum depth and dive time are used to compute
+desaturation.
 
 **The shiny application is not yet in production.**
 
-Future parts are work in progress, like more precise planification setup with different depths and time input. Desaturation planification with other models are also planned along with maybe other gas than air supported for consumption
+Future parts are work in progress, like more precise planification setup
+with different depths and time input. Desaturation planification with
+other models are also planned along with maybe other gas than air
+supported for consumption
 
-Intended to be used by french dive student, traduction of the lexic is on it's way. For this part the shiny app is written in english with french translation possible in settings.
+Intended to be used by french dive student, traduction of the lexic is
+on it’s way. For this part the shiny app is written in english with
+french translation possible in settings.
 
-<!--
 ## Installation
 
-This package can be installed with the devtools package or by cloning this repository.
+You can install the development version of `{shinyDiveR}` from
+[github](https://github.com/gowachin/shinyDiveR) with:
 
-## Usage
+``` r
+# install.packages("devtools")
+devtools::install_github('https://github.com/gowachin/shinyDiveR')
+# or 
+# install.packages("remotes")
+remotes::install_github("gowachin/shinyDiveR")
+```
 
-### Planning a single dive
+Below is an exemple of the application :
 
-Apart from default/advanced settings, a dive can be resumed by it's maximum depth and duration. For example, here is the default dive for this pacakge, a maximum depth at 20 meters for 40 minutes. Note here that despite going underwater at an altitude of -20, we use positive numeric values.
+<img src="https://raw.githubusercontent.com/gowachin/shinyDiveR/golem/inst/images/shinyDiveR.png" alt="screen" height=900px/>
 
-dive(20,40)
+<!-- You can install the released version of shinyDiveR from [CRAN](https://CRAN.R-project.org) with:
 
-### Planning a second dive
+``` r
+install.packages("shinyDiveR")
+```
 
-A second dive depends heavily on the first one as the desaturation is not perfect and residual azote will impact the second saturation. 
--->
+## Example
 
-## Disclaimer 
-This application is intended for use in education about scubadiving planification and academic interest only. It is not designed for actual use in scuba diving and underwater activity. It is emphatically not suitable for use in actual diving. Scuba diving is a dangerous activity with risks of death and serious injury. No-one should attempt scuba diving without training, certification, supervision and regular medical assessment. It is also dangerous for trained scuba divers to exceed the limitations of their training. 
+This is a basic example which shows you how to solve a common problem:
 
-This application will provide planinfication about dive profile and air consumption, without giving any warning if the activity would be dangerous or fatal. In doing so, it does not take account of safety restrictions, other physical laws, or other important information. 
-Despite using diving table as base for computation, no output from this application should be misconstrued as a diving table. The author does not warrant that the application is correct in any sense whatsoever. Even if correctly computed, the predictions of a theoretical physical model may not be correct predictions.
 
+```r
+library(shinyDiveR)
+## basic example code
+```
+
+
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>. -->
+
+## Disclaimer
+
+This application is intended for use in education about scubadiving
+planification and academic interest only. It is not designed for actual
+use in scuba diving and underwater activity. It is emphatically not
+suitable for use in actual diving. Scuba diving is a dangerous activity
+with risks of death and serious injury. No-one should attempt scuba
+diving without training, certification, supervision and regular medical
+assessment. It is also dangerous for trained scuba divers to exceed the
+limitations of their training.
+
+This application will provide planinfication about dive profile and air
+consumption, without giving any warning if the activity would be
+dangerous or fatal. In doing so, it does not take account of safety
+restrictions, other physical laws, or other important information.
+Despite using diving table as base for computation, no output from this
+application should be misconstrued as a diving table. The author does
+not warrant that the application is correct in any sense whatsoever.
+Even if correctly computed, the predictions of a theoretical physical
+model may not be correct predictions.
 
 ## Actual in work part
 
 Consumption part of shiny (more text, reactive slider for pression etc)
 TODO : make a module for rules and use them more in conso !
 
-## To do : 
+## To do :
 
-- Complete README when shiny in prod and examples.
+-   Complete README when shiny in prod and examples.
 
-### Shiny 
-- change maximum depth for consecutive dives in shiny
-- modify advanced parameters for screen (inligne parameters)
-- checkbox to force inverse profile or 60+ dive ! -> check restricted bar on shinywidgets
-- look for axis break and plotclick
+### Shiny
 
-Feel free to fork this, and use it. Any recommendation is welcome :) 
+-   change maximum depth for consecutive dives in shiny
+-   modify advanced parameters for screen (inligne parameters)
+-   checkbox to force inverse profile or 60+ dive ! -&gt; check
+    restricted bar on shinywidgets
+-   look for axis break and plotclick
 
-Thanks to Rtask for great help in app building ! https://rtask.thinkr.fr/fr/notre-template-shiny-pour-concevoir-une-appli-prod-ready/
+Feel free to fork this, and use it. Any recommendation is welcome :)
+
+Thanks to Rtask for great help in app building !
