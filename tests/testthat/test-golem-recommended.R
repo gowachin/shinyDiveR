@@ -2,10 +2,10 @@
 library(golem)
 library(shinyDiveR)
 
-test_that("app ui", {
-  ui <- shinyDiveR:::app_ui()
-  expect_shinytaglist(ui)
-})
+# test_that("app ui", {
+#   ui <- shinyDiveR:::app_ui()
+#   expect_shinytaglist(ui)
+# })
 
 test_that("app server", {
   server <- shinyDiveR:::app_server

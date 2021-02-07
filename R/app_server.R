@@ -26,9 +26,9 @@ app_server <- function( input, output, session ) {
   })
   
   #### serveur part ####
-  output$divePlot <- renderPlot({
-    dive <- dive(input$bins,6, hour = 9*60)
-    plot(dive, xlab = i18n()$t("Time (min)"), ylab = i18n()$t("Depth (m)"))
-  })
+  r <- reactiveValues()
   
+  observe({
+    r$dives <- modi_01_squareUI_server('square', i18n, r)
+  })
 }

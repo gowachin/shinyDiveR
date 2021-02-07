@@ -79,6 +79,8 @@ Refactorisation with golem
 Refactorisation with golem
 
 ### Shiny 
+- make a dependance map between modules and tabPanels
+- take a look at the testthat package for more tests.
 - take a look at shiny 1.6 and clear/darktheme
 - change maximum depth for consecutive dives in shiny
 - modify advanced parameters for screen (inligne parameters)

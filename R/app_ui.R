@@ -3,7 +3,7 @@
 #' @param request Internal parameter for `{shiny}`. 
 #'     DO NOT REMOVE.
 #' @import shiny shiny.i18n
-#' @importFrom shinyWidgets setSliderColor
+#' @importFrom shinyWidgets setSliderColor pickerInput
 #' @noRd
 app_ui <- function(request) {
   #### options ####
@@ -21,10 +21,30 @@ app_ui <- function(request) {
     fluidPage(
       shiny.i18n::usei18n(i18n),
       div(style = "float: right;",
-          selectInput('selected_language',
-                      "Change language",
-                      choices = i18n$get_languages(),
-                      selected = language)
+          
+          tags$style(".chooselang {width: 80px}"),
+          div(class = "chooselang",
+              pickerInput(
+            inputId = 'selected_language',
+            label = "Change language", 
+            choices = i18n$get_languages(), 
+            selected = language,
+            choicesOpt = list(
+              content = mapply(i18n$get_languages(), shinyDiveR::flags, 
+                               FUN = function(country, flagUrl) {
+                HTML(paste(tags$img(src=flagUrl, width=20, height=15), country))
+              }, SIMPLIFY = FALSE, USE.NAMES = FALSE)
+            )
+          )
+          ),
+          
+          # selectInput('selected_language',
+          #             "Change language",
+          #             choices = i18n$get_languages(),
+          #             selected = language),
+          # 
+          # tags$head(tags$style(HTML(".selectize-input {height: 10px; 
+          #                           width: 60px; font-size: 10px;}")))
       ),
       #### UI general part ####
       # Hide slider border value
@@ -42,20 +62,13 @@ app_ui <- function(request) {
         windowTitle = "DiveR"),
       # hr(style = "border-color: #766812;"),
       #### Inside ####
-      #### temporary test ####
-      sliderInput('bins',
-        i18n$t("Dive Profile"),
-                  min = 1,
-                  max = 50,
-                  value = 30),
-      plotOutput(outputId = "divePlot"),
-      #####
       tabsetPanel(
         type = "pills",
         #### Dive profile panel ####
         tabPanel(p(i18n$t("Dive Profile"),icon("water")),
                  # i18n$t("Dive Profile"),
                  #mod_squareUI('square', i18n, maxd),
+                 mod_01_squareUI_ui('square', i18n, maxd),
                  ## invisible panel
                  conditionalPanel(
                    condition = "false",

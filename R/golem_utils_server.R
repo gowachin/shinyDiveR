@@ -65,3 +65,38 @@ drop_nulls <- function(x){
 rv <- shiny::reactiveValues
 rvtl <- shiny::reactiveValuesToList
 
+
+#' return `TRUE` if in `production mode`
+#' 
+#' @export
+app_prod <- function(){
+  getOption( "golem.app.prod" ) %||% TRUE
+}
+
+#' Translation
+#' 
+#' Environment set by the shiny.i18n package. Run on the translatio.json file.
+#' 
+#' @details 
+#' At this day only english ('en') and french ('fr') are set in the json file. 
+#' You can contribute to this via the github repository of this project at
+#' \url{https://github.com/gowachin/shinyDiveR}
+#'
+#' @author Jaunatre Maxime <maxime.jaunatre@yahoo.fr>
+#' 
+#' @examples 
+#' data(i18n)
+#' i18n$set_translation_language('fr') # choose the french language
+"i18n"
+
+#' Flags icon links
+#' 
+#' Urls of svg files for flags.
+#' 
+#' @details 
+#' At this day only english ('en') and french ('fr') are set. All these icons 
+#' are on the following website : 
+#' \url{https://cdn.rawgit.com/lipis/flag-icon-css/master/}
+#'
+#' @author Jaunatre Maxime <maxime.jaunatre@yahoo.fr>
+"flags"

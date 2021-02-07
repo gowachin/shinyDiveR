@@ -4,7 +4,9 @@
 
 * Added a `NEWS.md` file to track changes to the package.
 
-* Reactive language option
+* Reactive language option with pretty flags
+
+* vignette about contribution guide
 
 ## Minor improvements and fixes
 
