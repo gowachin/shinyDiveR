@@ -1,12 +1,13 @@
-.rs.api.documentSaveAll() # ferme et sauvegarde tous les fichiers ouvert
-suppressWarnings(lapply(paste('package:', names(sessionInfo()$otherPkgs), sep = ""), 
-                        detach, character.only = TRUE, unload = TRUE))# detache tous les packages
-rm(list = ls(all.names = TRUE))# vide l'environneent
-devtools::document('.') # genere NAMESPACE et man
-devtools::load_all('.') # charge le package
-options(shiny.maxd = 40)
-options(shiny.lang = 'fr')# change language 'fr' or 'en' supported by app
-options(app.prod = T) # TRUE = production mode, FALSE = development mode
-shiny::runApp('inst/app') # lance l'application
+# Set options here
 
-# devtools::install_github('https://github.com/gowachin/DiveR')
+options(golem.app.prod = FALSE) # TRUE = production mode, FALSE = development mode
+
+# Detach all loaded packages and clean your environment
+golem::detach_all_attached()
+# rm(list=ls(all.names = TRUE))
+
+# Document and reload your package
+golem::document_and_reload()
+
+# Run the application
+run_app('fr')

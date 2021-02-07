@@ -1,0 +1,98 @@
+---
+title: "Developping inside shinyDiver"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{shinyDiveR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+author: "Maxime Jaunatre"
+date: "29/01/2021"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+This shiny application has been build following the `{golem}` package instructions, on a framework written by ThinkR.
+
+More ressources on the framework is present in the [package](https://rtask.thinkr.fr/fr/demarrer-avec-golem/) documentation and the [book](https://engineering-shiny.org/) written to explain the framework.
+
+# Installation and usage
+
+You can launch locally the application by running the following code.
+
+```{r run, eval = FALSE}
+library(shinyDiveR)
+shinyDiver::run_app()
+```
+
+# Contributing guides
+
+Please follow this guide before a pull-request on github. This is also a reminder of good practice for the application longevity and debugging.
+
+## Adding other tabPanels
+
+Each tabPanel must be included in a separated module with the following name : **mod_N_name**, where N is the order at wich the panel is set. This help keeping the code base clean and understandable for latter contributions.
+
+A tabPanel shall also specify if it depend on precedent tabPanel. In reverse, the tabPanel which is precedent to another must name them. This will help tabPanels to bug if one is removed when other depends on it.
+
+A feature to add in the repository could be a map of dependances between module, but this is in work at this momemt.
+
+While talking about dependance between tabPanel, some tabPanels call the return function before the end of the server, in order to save computation time. In this case there is a boolean reactive value store in **r** (le petit r). Here is the code to show how to code it
+
+```{r set no_run, eval=FALSE}
+# In the server function of the tabPanel module
+if (something) {
+  r$no_run <- TRUE
+  # eventually update some input
+  return()
+} else {
+  #do something and continue the code
+}
+```
+
+This variable is to be used in the beginning of the dependant tabPanel module, to return without running the module.
+
+```{r read no_run, eval=FALSE}
+# at the beginning of the server function of the dependant tabPanel module
+if(r$no_run) return() # tell here why this could be set
+                      # ex : set in mod_N-1_name because update call return() 
+# rest of the server function
+```
+
+Here the variable was names `no_run` as an example, but you better use a name linked with the dependant module name.
+
+*This set up is not definitive, an option depending on selection of tabPanel could be better*
+
+## Adding run_app options
+
+You can add options to the shiny application. These options allow to set parameters for the application during all it's production.
+
+At this time, 2 options has been set :
+- `app_lang`, which can be set between 'en' and 'fr'. It allow a translation of the application. 
+- `app_maxd`, a numeric input allowing to define a maximum depth for all the app. It is used to restrict deeper depths for beginner student who do not need to study dive planification lower than their grades.
+
+This options are set in the **R/run_app.R** file. You need to write them inside the function parameters, document them and add them to the **golem_opts** list. Don't forget to name the list element, this is the name to call them later on.
+
+Parameters can be called in the ui and server functions by calling the following code :
+
+```{r call opt, eval=FALSE}
+x <- golem::get_golem_options("x")
+```
+
+## Adding supported languages
+
+You can add a supported language by filling the **inst/app/www/translation.json** file. Note that a full language support must be done before implementing the language inside the UI, because missing sentences will be in another language by default (english or french, depending on the production server). 
+
+Once the translation has been completed, you can run the **dev/run_dev_update_trans.R** script and check for your translation by calling this code :
+
+```{r call language, eval=FALSE}
+shinyDiver::run_app('fr') # french language example.
+```
+
+For more information about the language support, please check [shiny.i18n package](https://github.com/Appsilon/shiny.i18n). 

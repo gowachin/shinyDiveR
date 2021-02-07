@@ -14,7 +14,7 @@ if (interactive()){
   i18n$set_translation_language('fr')
   
   ui <- fluidPage(
-    mod_squareUI('square', i18n),
+    mod_squareUI('square', i18n, maxd = c(65,60)),
     mod_consoUI('conso', i18n)
   )
   
