@@ -1,35 +1,18 @@
+#' advparaminput UI Function
+#'
+#' @description A shiny Module for advanced parameters of a dive. 
+#' submodule of mod_01_squareUI
+#'
+#' @param id,input,output,session Internal parameters for {shiny}.
+#' @param i18n traduction language in a reactive element
+#'
+#' @noRd 
+#'
 #' @import shiny
-#' @import shiny.i18n
 #' @import shinyTime
 #' @import shinyWidgets
-NULL
-
-#' @title   mod_advparamInput
-#' @description  Shiny module for advanced parameters of a dive
-#'
-#' @param id shiny id
-#' @param i18n traduction language
-#' 
-#' @examples
-#' library(shiny)
-#' library(shiny.i18n)
-#' library(shinyTime)
-#' library(shinyWidgets)
-#' if (interactive()){
-#' i18n <- Translator$new(translation_json_path = "inst/app/translations/translation.json")
-#' i18n$set_translation_language('en')
-#' ui <- fluidPage(
-#'   mod_advparamInput('adv', i18n)
-#' )
-#' server <- function(input, output, session) {
-#' }
-#' shinyApp(ui, server)
-#' }
-#' 
-#' @export
 mod_advparamInput <- function(id, i18n){
   ns <- NS(id)
-  
   tagList(
     hr(style = "border-color: #766812;"),
     checkboxInput(ns("advset"), i18n$t("Advanced settings"), FALSE),
@@ -52,3 +35,7 @@ mod_advparamInput <- function(id, i18n){
   )
 
 }
+    
+## To be copied in the UI
+# mod_advparaminput_ui("advparaminput_ui_1")
+    

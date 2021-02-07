@@ -6,7 +6,7 @@
 <!-- badges: start -->
 <!-- [![R build status](https://github.com/gowachin/shinyDiveR/workflows/R-CMD-check/badge.svg)](https://github.com/gowachin/shinyDiveR/actions) -->
 
-[![](https://img.shields.io/badge/devel%20version-0.1.0-blue.svg)](https://github.com/gowachin/shinyDiveR)
+[![](https://img.shields.io/badge/devel%20version-0.2.0.0-blue.svg)](https://github.com/gowachin/shinyDiveR)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
@@ -88,15 +88,17 @@ model may not be correct predictions.
 
 ## Actual in work part
 
-Consumption part of shiny (more text, reactive slider for pression etc)
-TODO : make a module for rules and use them more in conso !
+Refactorisation with golem
 
 ## To do :
 
--   Complete README when shiny in prod and examples.
+Refactorisation with golem
 
 ### Shiny
 
+-   make a dependance map between modules and tabPanels
+-   take a look at the testthat package for more tests.
+-   take a look at shiny 1.6 and clear/darktheme
 -   change maximum depth for consecutive dives in shiny
 -   modify advanced parameters for screen (inligne parameters)
 -   checkbox to force inverse profile or 60+ dive ! -&gt; check
@@ -104,5 +106,3 @@ TODO : make a module for rules and use them more in conso !
 -   look for axis break and plotclick
 
 Feel free to fork this, and use it. Any recommendation is welcome :)
-
-Thanks to Rtask for great help in app building !

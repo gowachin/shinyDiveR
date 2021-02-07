@@ -1,15 +1,14 @@
-#' @import shiny
-NULL
-
-#' @title   mod_summarisediveServer
-#' @description  Shiny module for square profile
+#' summarisedive server Function
+#'
+#' @description A shiny Module to summarise dive objects.
+#' submodule of mod_01_squareUI
 #'
 #' @param id shiny id
-#' @param i18n traduction language
+#' @param i18n traduction language in a reactive element
 #' @param dive a dive object created by the mn90 package
 #'
-#' @export
-#' @rdname mod_squareUI
+#'
+#' @noRd 
 mod_summarisediveServer <- function(id, i18n, dive){
   moduleServer(
     id,
@@ -21,26 +20,26 @@ mod_summarisediveServer <- function(id, i18n, dive){
       sp <- c(rep("  ", n - diz), rep(" ", diz))
       
       if(dive$palier$group != "Z"){
-        group <- paste0(i18n$t('The dive group is '), dive$palier$group)
+        group <- paste0(i18n()$t('The dive group is '), dive$palier$group)
       } else {
         group <- ''
       }
       
       if(dive$maj > 0){
-        maj <- paste0(i18n$t('The dive majoration is '), dive$maj, ' minutes.')
+        maj <- paste0(i18n()$t('The dive majoration is '), dive$maj, ' minutes.')
       } else {
         maj <- ''
       }
       
       ret <- renderText({
         paste0(
-          i18n$t("The first dive reach "), depth(dive),
-          i18n$t(" meters for a duration of "), dtime(dive), " minutes.\n",
-          i18n$t("Total dive time is "), diff(dive$hour),
-          i18n$t(" minutes with an ascent of "), dive$dtr, " minutes.\n",
-          sum(dive$palier$time > 0), i18n$t(" stops :"),
+          i18n()$t("The first dive reach "), depth(dive),
+          i18n()$t(" meters for a duration of "), dtime(dive), " minutes.\n",
+          i18n()$t("Total dive time is "), round(diff(dive$hour),2),
+          i18n()$t(" minutes with an ascent of "), round(dive$dtr, 2), " minutes.\n",
+          sum(dive$palier$time > 0), i18n()$t(" stops :"),
           paste(sprintf(
-            i18n$t("%s%d minutes at %d meters"), sp,
+            i18n()$t("%s%d minutes at %d meters"), sp,
             dive$palier$time[sup],
             dive$palier$depth[sup]
           ),
@@ -53,3 +52,7 @@ mod_summarisediveServer <- function(id, i18n, dive){
     }
   )
 }
+    
+## To be copied in the server
+# callModule(mod_summarisedive_server, "summarisedive_ui_1")
+ 
