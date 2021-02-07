@@ -35,7 +35,7 @@ mod_squareUI <- function(id, i18n, maxd){
   
   ns <- NS(id)
   
-  out <- tagList(
+  tagList(
     sidebarLayout(
       position = "right",
       ### Sidebar panel for inputs ####
@@ -102,11 +102,6 @@ mod_squareUI <- function(id, i18n, maxd){
       )
     )
   )
-  
-  if ( app_prod()) {
-    out <-   out[! grepl('^dev',names(out))]
-  }
-  out
 }
 
 
@@ -133,6 +128,7 @@ mod_squareServer <- function(id, i18n, r){
       tmp <- input$time1
       ################ SLIDER T1 UPDATE ################
       if (tmp > maxt1) {
+        r$no_run <- TRUE
         updateSliderInput(session, "time1", value = maxt1, min = 1, max = maxt1)
         return()
       } else {

@@ -30,7 +30,7 @@ NULL
 mod_advparamInput <- function(id, i18n){
   ns <- NS(id)
   
-  out <- tagList(
+  tagList(
     hr(style = "border-color: #766812;"),
     checkboxInput(ns("advset"), i18n$t("Advanced settings"), FALSE),
     conditionalPanel(
@@ -50,9 +50,5 @@ mod_advparamInput <- function(id, i18n){
       )
     )
   )
-  
-  if ( app_prod()) {
-    out <-   out[! grepl('^dev',names(out))]
-  }
-  out
+
 }
