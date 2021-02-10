@@ -201,7 +201,7 @@ modi_01_squareUI_server <- function(id, i18n, r){
                  def_cols = TRUE)
           })
           # Dive summary
-          output$dive <- mod_summarisediveServer('dive1', i18n, dive1)
+          output$dive <- mod_summarisediveServer('dive1', i18n, dive1, 'first')
           
           r$dives <- dive1
         } else {
@@ -221,10 +221,11 @@ modi_01_squareUI_server <- function(id, i18n, r){
                  xlab = i18n()$t("Time (min)"), def_cols = TRUE)
           })
           # Dive summary
-          output$dive <- mod_summarisediveServer('dive1', i18n, mult_dive$dive1)
+          output$dive <- mod_summarisediveServer('dive1', i18n, mult_dive$dive1,
+                                                 'first')
           if (mult_dive$type != "solo") {
             output$dive2 <- mod_summarisediveServer('dive2', i18n, 
-                                                    mult_dive$dive2)
+                                                    mult_dive$dive2, "second")
           }
           
           r$dives <- mult_dive

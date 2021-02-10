@@ -25,6 +25,7 @@
       {"en": "%s%d minutes at %d meters", "fr": "%s%d minutes à %d metres"},
       
       {"en": "The first dive reaches ", "fr": "La première plongée atteint "},
+      {"en": "The second dive reaches ", "fr": "La deuxième plongée atteint "},
       {"en": " meters for a duration of ", "fr": " metres pour une durée de "},
       {"en": "Total dive time is ", "fr": "Le temps total de plongée est de "},
       {"en": " minutes with an ascent of ", "fr": " minutes avec un temps de remontée de "},

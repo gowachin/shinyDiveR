@@ -6,10 +6,12 @@
 #' @param id shiny id
 #' @param i18n traduction language in a reactive element
 #' @param dive a dive object created by the mn90 package
+#' @param n number of the dive. TO be in c('first', 'second')
 #'
 #'
 #' @noRd 
-mod_summarisediveServer <- function(id, i18n, dive){
+mod_summarisediveServer <- function(id, i18n, dive, num = c("first", "second")){
+  num <- match.arg(num)
   moduleServer(
     id,
     ## Below is the module function
@@ -33,7 +35,7 @@ mod_summarisediveServer <- function(id, i18n, dive){
       
       ret <- renderText({
         paste0(
-          i18n()$t("The first dive reach "), depth(dive),
+          i18n()$t(paste("The", num, "dive reaches ")), depth(dive),
           i18n()$t(" meters for a duration of "), dtime(dive), " minutes.\n",
           i18n()$t("Total dive time is "), round(diff(dive$hour),2),
           i18n()$t(" minutes with an ascent of "), round(dive$dtr, 2), " minutes.\n",
