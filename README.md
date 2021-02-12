@@ -88,11 +88,11 @@ model may not be correct predictions.
 
 ## Actual in work part
 
-Refactorisation with golem
+Preparation for chamilo and conso tabPanel
 
 ## To do :
 
-Refactorisation with golem
+Check traduction
 
 ### Shiny
 
