@@ -27,6 +27,8 @@ usethis::use_package( "DiveR" )
 # golem::add_module( name = "summarisedive" ) # Name of the module
 # golem::add_module( name = "advparaminput" ) # Name of the module
 # golem::add_module( name = "advparaminput" ) # Name of the module
+# golem::add_module( name = "02_consoUI" ) # Name of the module
+
 
 ## Add helper functions ----
 ## Creates ftc_* and utils_*
@@ -54,6 +56,7 @@ usethis::use_vignette("golem")
 devtools::build_vignettes()
 
 ## Code coverage ----
+
 ## (You'll need GitHub there)
 usethis::use_github()
 usethis::use_travis()
