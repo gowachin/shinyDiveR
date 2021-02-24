@@ -29,6 +29,6 @@ app_server <- function( input, output, session ) {
   r <- reactiveValues()
   
   observe({
-    r$dives <- modi_01_squareUI_server('square', i18n, r)
+    r$dives <- mod_01_squareUI_server('square', i18n, r)
   })
 }
