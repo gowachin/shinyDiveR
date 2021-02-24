@@ -32,7 +32,7 @@ mod_01_squareUI_ui <- function(id, i18n, maxd){
         # Input: Slider for time ----
         sliderInput(
           inputId = ns("time1"), label = i18n$t("Time (minutes):"),
-          min = 1, max = 180, value = 40
+          min = 1, max = 75, value = 40
         ),
         # hr(style = "border-color: #766812;"),
         # Input: checkbox second dive ----
@@ -56,7 +56,7 @@ mod_01_squareUI_ui <- function(id, i18n, maxd){
               condition = "input.time_sec == true", ns = ns,
               sliderInput(
                 inputId = ns("time2"), label = i18n$t("Time (minutes):"),
-                min = 1, max = 180, value = 40
+                min = 1, max = 75, value = 75
               )
             )
           )
@@ -64,8 +64,8 @@ mod_01_squareUI_ui <- function(id, i18n, maxd){
         mod_advparamInput(ns("adv_param"), i18n),
         conditionalPanel(
           condition = "false",
-          checkboxInput(ns("ghost_sec"), "ghost second dive", FALSE),
-          checkboxInput(ns("time_sec"), "time second dive", FALSE) #,
+          checkboxInput(ns("ghost_sec"), "ghost second dive", TRUE),
+          checkboxInput(ns("time_sec"), "time second dive", TRUE) #,
           # checkboxInput(ns("sec_plot"), "plot second dive", FALSE)
         )
       ),
