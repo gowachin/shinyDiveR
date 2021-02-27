@@ -43,7 +43,8 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 /*! Modifications*/
-#square-sidebar{
+#square-sidebar,
+#conso-sidebar{
   background-color: #073642;
   border-color: #766812;
   color: white;

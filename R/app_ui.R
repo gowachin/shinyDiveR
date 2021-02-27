@@ -66,12 +66,10 @@ app_ui <- function(request) {
                    condition = "false",
                    checkboxInput("sec_plot", "plot second dive", FALSE)
                  )
-        )#,
-        # tabPanel(
-        #   i18n$t("Consumption"),
-        #     h1('In work')
-        #   # mod_consoUI('conso', i18n)
-        # )
+        ),
+        tabPanel(p(i18n$t("Consumption"),icon("water")),
+                 mod_02_consoUI_ui('conso', i18n)
+        )
       ),
       hr(style = "border-color: #766812;"),
       

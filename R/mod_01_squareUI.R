@@ -13,6 +13,7 @@
 #' @importFrom shiny NS tagList 
 #' @importFrom shinyTime timeInput
 #' @importFrom lubridate minute hour
+#' @importFrom graphics plot
 #' @import DiveR
 mod_01_squareUI_ui <- function(id, i18n, maxd){
   ns <- NS(id)
