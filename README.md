@@ -86,23 +86,8 @@ not warrant that the application is correct in any sense whatsoever.
 Even if correctly computed, the predictions of a theoretical physical
 model may not be correct predictions.
 
-## Actual in work part
+## Want to help ?
 
-Preparation for chamilo and conso tabPanel
-
-## To do :
-
-Check traduction
-
-### Shiny
-
--   make a dependance map between modules and tabPanels
--   take a look at the testthat package for more tests.
--   take a look at shiny 1.6 and clear/darktheme
--   change maximum depth for consecutive dives in shiny
--   modify advanced parameters for screen (inligne parameters)
--   checkbox to force inverse profile or 60+ dive ! -&gt; check
-    restricted bar on shinywidgets
--   look for axis break and plotclick
+Go check the projects of this repository !
 
 Feel free to fork this, and use it. Any recommendation is welcome :)
