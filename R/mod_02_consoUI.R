@@ -124,7 +124,20 @@ mod_02_consoUI_server <- function(id, i18n, sec_plot, dives ,r){
       print('here')
       print(input$rule1_press)
       print(input$rule2_press)
+      
+      
       rules <- c(input$rule1_press, input$rule2_press)
+      for (i in 1:2){
+        lab <- paste0("rule", i, "_press")
+        if (rules[i] > input$press ) {
+          updateSliderInput(session, lab, value = input$press, min = 1, 
+                            max = input$press)
+          return()
+        } else {
+          updateSliderInput(session, lab, value = rules[i], min = 1, 
+                            max = input$press)
+        }
+      }
       print('nope')
       print(input$rule1)
       print(rules)
