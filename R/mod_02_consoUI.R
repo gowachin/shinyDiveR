@@ -42,7 +42,7 @@ mod_02_consoUI_ui <- function(id, i18n){
         # bloc caracteristics
         sliderInput(
           inputId = ns("volume"), label = "Volume (litre) :",
-          min = 1, max = 18, value = 10, step = 0.5
+          min = 1, max = 18, value = 15, step = 0.5
         ),
         sliderInput(
           inputId = ns("press"), label = i18n$t("Pressure (bar) :"),
@@ -58,7 +58,7 @@ mod_02_consoUI_ui <- function(id, i18n){
           column(width = 4, textInput(ns('rule1'), 'Rule 1', value = "Mid-pression")),
           column(8, 
                  sliderInput( inputId = ns("rule1_press"), label = i18n$t("Pressure (bar) :"),
-                              min = 0, max = 200, value = 50, step = 10 )
+                              min = 0, max = 200, value = 100, step = 10 )
           )
         ),
         # rule 2
@@ -130,11 +130,11 @@ mod_02_consoUI_server <- function(id, i18n, sec_plot, dives ,r){
       for (i in 1:2){
         lab <- paste0("rule", i, "_press")
         if (rules[i] > input$press ) {
-          updateSliderInput(session, lab, value = input$press, min = 1, 
+          updateSliderInput(session, lab, value = input$press, min = 0, 
                             max = input$press)
           return()
         } else {
-          updateSliderInput(session, lab, value = rules[i], min = 1, 
+          updateSliderInput(session, lab, value = rules[i], min = 0, 
                             max = input$press)
         }
       }

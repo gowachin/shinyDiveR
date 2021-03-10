@@ -42,8 +42,11 @@ app_ui <- function(request) {
       tags$head(tags$style(HTML('.irs-from, .irs-to, .irs-min, .irs-max {
             visibility: hidden !important; }'))),
       # Slider colors 
-      shinyWidgets::setSliderColor(rep(c("#2a8dd2", "#cc4f1c"),2), 
-                                   c(1, 2, 3, 4)),
+      shinyWidgets::setSliderColor(c(rep(c("#2a8dd2", "#cc4f1c"),2) #,
+                                     # "#BDBCBB", "#87F7FF", "#2a8dd2",
+                                     # "#87F7FF", "#cc4f1c"
+                                     ), 
+                                   c(1, 2, 3, 4 )), #5, 6, 7, 8, 9)),
       
       #### TITLE ####
       # checkboxInput("help", i18n$t("hepl"), FALSE),
@@ -67,7 +70,7 @@ app_ui <- function(request) {
                    checkboxInput("sec_plot", "plot second dive", FALSE)
                  )
         ),
-        tabPanel(p(i18n$t("Consumption"),icon("water")),
+        tabPanel(p(i18n$t("Consumption"),icon("lungs")),
                  mod_02_consoUI_ui('conso', i18n)
         )
       ),
