@@ -143,7 +143,7 @@ mod_01_squareUI_server <- function(id, i18n, r){
         } else {
           maj <- majoration(
             depth = input$depth2, inter = interv,
-            group = dive1$palier$group
+            group = dive1$desat$group
           )
           if (!app_prod()){cat(" maj : ", maj)}
           maxt2 <- max_depth_time(input$depth2) - maj
@@ -161,7 +161,7 @@ mod_01_squareUI_server <- function(id, i18n, r){
       if (!app_prod()){
         cat("\nmaj done\n") # consol debug help
         cat("inter ", interv, "time2 ", input$time2) # consol debug help
-        cat("\ndepth2 ", input$depth2, "group ", dive1$palier$group)
+        cat("\ndepth2 ", input$depth2, "group ", dive1$desat$group)
         cat("\ntimet ", timet, "maxt2 ", maxt2, "\n")
         cat(input$ghost_sec, "ghost check\n")
         cat(input$sec, "sec\n")
