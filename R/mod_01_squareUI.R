@@ -97,7 +97,7 @@ mod_01_squareUI_server <- function(id, i18n, r){
       if (!app_prod()){cat('square start\n')}
       interv <- minute(input$interv) +
         60 * hour(input$interv)
-      maxt1 <- max_depth_t(input$depth1)
+      maxt1 <- max_depth_time(input$depth1)
       tmp <- input$time1
       ################ SLIDER T1 UPDATE ################
       if (tmp > maxt1) {
@@ -112,7 +112,7 @@ mod_01_squareUI_server <- function(id, i18n, r){
         60 * hour(input$'adv_param-time_input1')
       dive1 <- dive(
         depth = input$depth1, time = input$time1,
-        secu = input$'adv_param-secu', vup = input$'adv_param-vup',
+        secu = input$'adv_param-secu', ascent_speed = input$'adv_param-vup',
         hour = hour
       )
       # allow for second dive depending interval and depth
@@ -127,11 +127,11 @@ mod_01_squareUI_server <- function(id, i18n, r){
       if (interv <= 15) {
         if (!app_prod()){cat("\nconsec")}
         spendt <- max(dive1$dtcurve$times) + interv # already spent time
-        maxt2 <- max_depth_t(max(input$depth1, input$depth2)) - spendt
+        maxt2 <- max_depth_time(max(input$depth1, input$depth2)) - spendt
         maxt2 <- floor(maxt2)
       } else if (interv > 720) {
         if (!app_prod()){cat("\ndiff")}
-        maxt2 <- max_depth_t(input$depth2)
+        maxt2 <- max_depth_time(input$depth2)
       } else {
         if (!app_prod()){
           cat("\nsuccess")
@@ -146,7 +146,7 @@ mod_01_squareUI_server <- function(id, i18n, r){
             group = dive1$palier$group
           )
           if (!app_prod()){cat(" maj : ", maj)}
-          maxt2 <- max_depth_t(input$depth2) - maj
+          maxt2 <- max_depth_time(input$depth2) - maj
         }
       }
       tmp <- input$time2
@@ -212,7 +212,7 @@ mod_01_squareUI_server <- function(id, i18n, r){
                            dive(
                              depth = input$depth2, time = input$time2,
                              secu = input$'adv_param-secu', 
-                             vup = input$'adv_param-vup'
+                             ascent_speed = input$'adv_param-vup'
                            ),
                            inter = interv
         )
