@@ -27,8 +27,8 @@ mod_summarisediveServer <- function(id, i18n, dive, num = c("first", "second")){
         group <- ''
       }
       
-      if(dive$maj > 0){
-        maj <- paste0(i18n()$t('The dive majoration is '), dive$maj, ' minutes.')
+      if(dive$params["maj"] > 0){
+        maj <- paste0(i18n()$t('The dive majoration is '), dive$params["maj"], ' minutes.')
       } else {
         maj <- ''
       }
@@ -38,7 +38,7 @@ mod_summarisediveServer <- function(id, i18n, dive, num = c("first", "second")){
           i18n()$t(paste("The", num, "dive reaches ")), depth(dive),
           i18n()$t(" meters for a duration of "), dtime(dive), " minutes.\n",
           i18n()$t("Total dive time is "), round(diff(dive$hour),2),
-          i18n()$t(" minutes with an ascent of "), round(dive$dtr, 2), " minutes.\n",
+          i18n()$t(" minutes with an ascent of "), round(dive$params["dtr"], 2), " minutes.\n",
           sum(dive$desat$time > 0), i18n()$t(" stops :"),
           paste(sprintf(
             i18n()$t("%s%d minutes at %d meters"), sp,
