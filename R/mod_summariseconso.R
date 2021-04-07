@@ -16,29 +16,28 @@ mod_summariseconsoServer <- function(id, i18n, conso){
     function(input, output, session) {
       
       if( sum(pressure(conso)) ){
-        viable <- i18n()$t("The dive is viable !\n")
+        viable <- i18n()$t("The dive is viable !")
         fail <- ""
       } else {
-        viable <- i18n()$t("The dive is deadly !\n")
+        viable <- i18n()$t("The dive is deadly !")
         fail <- paste0(i18n()$t("The air failure happens at "),
-        rules(conso, n =0)$timeE, i18n()$t(" at "),- 0, "m\n")
-        # TODO : add depth_at_time
+        rules(conso, n =0)$timeE, i18n()$t(" at "),
+        - depth_at_time(conso, rules(conso, n =0)$timeE), "m\n")
       }
       
             ret <- renderText({
         paste0(
           i18n()$t("The dive reaches "), depth(conso),
           i18n()$t(" meters with a total dive time of "), 
-          round(diff(conso$hour),2),
-          i18n()$t(" minutes.\n"),
+          round(diff(conso$hour),2), " minutes.\n",
           i18n()$t("The final pressure is "), pressure(conso), " bar\n",
-          paste(sprintf("The %s rule '%s' is reached at %.1f minutes\n", 
-                  c("first", "second"),
+          paste(sprintf(i18n()$t("The %s rule '%s' is reached at %.1f minutes"),
+                  c(i18n()$t("first"), i18n()$t("second")),
                   unlist(rules(conso)[c(2, 5)]), 
                   unlist(rules(conso)[c(3, 6)]) 
-          ), collapse = ""),
+          ), collapse = "\n"),"\n",
           fail,
-          viable
+          viable, "\n"
         )
         
       })

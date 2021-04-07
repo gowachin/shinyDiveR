@@ -49,42 +49,47 @@ mod_02_consoUI_ui <- function(id, i18n){
           min = 10, max = 300, value = 200, step = 10
         ),
         sliderInput(
-          inputId = ns("cons"), label = i18n$t("Consumption (littre/minute) :"),
+          inputId = ns("cons"), label = i18n$t("Consumption (litre/minute) :"),
           min = 10, max = 30, value = 20, step = 1
         ),
         # rule 1 
-        helpText(paste("A rule is an important pression to watch during a dive")),
+        helpText(i18n$t(paste("A rule is an important pression",
+                       "to watch during a dive"))),
         fluidRow(
-          column(width = 4, textInput(ns('rule1'), 'Rule 1', value = "Mid-pression")),
+          column(width = 4, textInput(ns('rule1'), i18n$t('Rule 1'), 
+                                      value = "Mid-pression")),
           column(8, 
-                 sliderInput( inputId = ns("rule1_press"), label = i18n$t("Pressure (bar) :"),
+                 sliderInput( inputId = ns("rule1_press"), 
+                              label = i18n$t("Pressure (bar) :"),
                               min = 0, max = 200, value = 100, step = 10 )
           )
         ),
         # rule 2
         fluidRow(
-          column(width = 4, textInput(ns('rule2'), 'Rule 2', value = "Reserve")),
+          column(width = 4, textInput(ns('rule2'), i18n$t('Rule 2'),
+                                      value = "Reserve")),
           column(8, 
-                 sliderInput( inputId = ns("rule2_press"), label = i18n$t("Pressure (bar) :"),
+                 sliderInput( inputId = ns("rule2_press"), 
+                              label = i18n$t("Pressure (bar) :"),
                               min = 0, max = 200, value = 50, step = 10 )
                  )
-          ), 
+          ) # , 
         # advanced pression settings ####
-        checkboxInput("advset_press", i18n$t("Advanced settings"), FALSE),
-        conditionalPanel(
-          condition = "input.advset_press", ns = ns, 
-          selectInput(
-            "conso_selec", "Select the pressure unit",
-            c(
-              "bar" = "bar",
-              "psi" = "psi"
-            )
-          )
-          # selectInput(
-          #   ns("conso_selec"), "Unit",
-          #   c("bar" = "bar", "%" = "percent")
-          # )
-        )
+        # checkboxInput("advset_press", i18n$t("Advanced settings"), FALSE),
+        # conditionalPanel(
+        #   condition = "input.advset_press", ns = ns, 
+        #   selectInput(
+        #     "conso_selec", "Select the pressure unit",
+        #     c(
+        #       "bar" = "bar",
+        #       "psi" = "psi"
+        #     )
+        #   )
+        #   # selectInput(
+        #   #   ns("conso_selec"), "Unit",
+        #   #   c("bar" = "bar", "%" = "percent")
+        #   # )
+        # )
       ),
       mainPanel(
         plotOutput(outputId = ns("plot_conso")),
