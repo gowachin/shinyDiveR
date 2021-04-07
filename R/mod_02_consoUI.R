@@ -87,7 +87,8 @@ mod_02_consoUI_ui <- function(id, i18n){
         )
       ),
       mainPanel(
-        plotOutput(outputId = ns("plot_conso"))
+        plotOutput(outputId = ns("plot_conso")),
+        verbatimTextOutput(outputId = ns("conso"))
       )
     )
   )
@@ -156,6 +157,9 @@ mod_02_consoUI_server <- function(id, i18n, sec_plot, dives ,r){
         plot(dt_conso, ylab = i18n()$t("Pressure (bar)"), 
              xlab = i18n()$t("Time (min)"), legend = FALSE)
       })
+      output$conso <- mod_summariseconsoServer(
+        'conso', i18n, dt_conso
+        )
       
     }
   )
