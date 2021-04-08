@@ -99,10 +99,12 @@ model may not be correct predictions.
 
 ## Want to help ?
 
+
 Go check the [projects](https://github.com/gowachin/shinyDiveR/projects)
 of this repository ! Any help is welcome and I accept all sort of ideas
 for future project. The idea of this package is to learn about process
 like desaturation models and turn them into algorithms. If you want to
 use a specific model, join me and we can try to implement it !
+
 
 Feel free to fork this, and use it. Any recommendation is welcome :)
