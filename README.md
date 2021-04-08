@@ -4,32 +4,46 @@
 # ShinyDiveR application <img src="https://raw.githubusercontent.com/gowachin/DiveR/master/inst/images/DiveR_hex.png" alt="logo" align="right" height=200px/>
 
 <!-- badges: start -->
-<!-- [![R build status](https://github.com/gowachin/shinyDiveR/workflows/R-CMD-check/badge.svg)](https://github.com/gowachin/shinyDiveR/actions) -->
 
-[![](https://img.shields.io/badge/devel%20version-0.2.0.0-blue.svg)](https://github.com/gowachin/shinyDiveR)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![](https://img.shields.io/badge/devel%20version-0.2.0.0-blue.svg)](https://github.com/gowachin/shinyDiveR)
+<!-- [![R build status](https://github.com/gowachin/shinyDiveR/workflows/R-CMD-check/badge.svg)](https://github.com/gowachin/shinyDiveR/actions) -->
+
 <!-- badges: end -->
 
 R package and shiny application for dive planification tools. It
-contains functions and methods to represent dive curves, desaturation
-time and gas consumption. At this day, only mn90 tables models are coded
-for single, consecutive or successive dives. This mean all profile are
-square ones and only maximum depth and dive time are used to compute
-desaturation.
+represent a part of the [DiveR
+package](https://github.com/gowachin/DiveR) and simplify it’s usage.
 
-**The shiny application is not yet in production.**
-
-Future parts are work in progress, like more precise planification setup
-with different depths and time input. Desaturation planification with
-other models are also planned along with maybe other gas than air
-supported for consumption
+At this day, only mn90 tables models are coded for single, consecutive
+or successive dives. This mean all profile are square ones and only
+maximum depth and dive time are used to compute desaturation.
 
 Intended to be used by french dive student, traduction of the lexic is
 on it’s way. For this part the shiny app is written in english with
 french translation possible in settings.
 
+Feel free to participate to this project, it is designed to be open
+source under a [CECILL-2
+Licence](https://github.com/gowachin/DiveR/blob/master/LICENCE-CECILL-2.1.txt).
+Any help in traduction or documentation is welcome (see end of README).
+
 ## Installation
+
+### Dependencies
+
+This package depend on the [DiveR
+package](https://github.com/gowachin/DiveR). It can be installed with
+the following code. *Note that this package also have dependencies
+described on its own README.*
+
+``` r
+# install.packages("devtools")
+devtools::install_github('https://github.com/gowachin/DiveR')
+```
+
+### Development version
 
 You can install the development version of `{shinyDiveR}` from
 [github](https://github.com/gowachin/shinyDiveR) with:
@@ -42,7 +56,15 @@ devtools::install_github('https://github.com/gowachin/shinyDiveR')
 remotes::install_github("gowachin/shinyDiveR")
 ```
 
-Below is an exemple of the application :
+You can run the application on your PC with the following code :
+
+``` r
+# Simulation of a dive
+library(shinyDiveR)
+shinyDiveR::run_app(app_lang = "en")
+```
+
+Below is an example of the application :
 
 <img src="https://raw.githubusercontent.com/gowachin/shinyDiveR/golem/inst/images/shinyDiveR.png" alt="screen" height=900px/>
 
@@ -52,18 +74,7 @@ Below is an exemple of the application :
 install.packages("shinyDiveR")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-
-```r
-library(shinyDiveR)
-## basic example code
-```
-
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>. -->
+ -->
 
 ## Disclaimer
 
@@ -88,6 +99,12 @@ model may not be correct predictions.
 
 ## Want to help ?
 
-Go check the projects of this repository !
+
+Go check the [projects](https://github.com/gowachin/shinyDiveR/projects)
+of this repository ! Any help is welcome and I accept all sort of ideas
+for future project. The idea of this package is to learn about process
+like desaturation models and turn them into algorithms. If you want to
+use a specific model, join me and we can try to implement it !
+
 
 Feel free to fork this, and use it. Any recommendation is welcome :)

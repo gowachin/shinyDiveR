@@ -2,7 +2,7 @@
 #' 
 #' @param request Internal parameter for `{shiny}`. 
 #'     DO NOT REMOVE.
-#' @import shiny shiny.i18n
+#' @import shiny shiny.i18n shinyjs
 #' @importFrom shinyWidgets setSliderColor pickerInput
 #' @noRd
 app_ui <- function(request) {
@@ -18,6 +18,7 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
+      useShinyjs(),
       #### Set language and choice ####
       shiny.i18n::usei18n(i18n),
       div(style = "float: right;", tags$style(".chooselang {width: 80px}"),
@@ -42,8 +43,11 @@ app_ui <- function(request) {
       tags$head(tags$style(HTML('.irs-from, .irs-to, .irs-min, .irs-max {
             visibility: hidden !important; }'))),
       # Slider colors 
-      shinyWidgets::setSliderColor(rep(c("#2a8dd2", "#cc4f1c"),2), 
-                                   c(1, 2, 3, 4)),
+      shinyWidgets::setSliderColor(c(rep(c("#2a8dd2", "#cc4f1c"),2) #,
+                                     # "#BDBCBB", "#87F7FF", "#2a8dd2",
+                                     # "#87F7FF", "#cc4f1c"
+                                     ), 
+                                   c(1, 2, 3, 4 )), #5, 6, 7, 8, 9)),
       
       #### TITLE ####
       # checkboxInput("help", i18n$t("hepl"), FALSE),
@@ -55,6 +59,7 @@ app_ui <- function(request) {
       
       #### Inside ####
       tabsetPanel(
+        id = "navbar",
         type = "pills",
         #### Dive profile panel ####
         tabPanel(p(i18n$t("Dive Profile"),icon("water")),
@@ -66,12 +71,11 @@ app_ui <- function(request) {
                    condition = "false",
                    checkboxInput("sec_plot", "plot second dive", FALSE)
                  )
-        )#,
-        # tabPanel(
-        #   i18n$t("Consumption"),
-        #     h1('In work')
-        #   # mod_consoUI('conso', i18n)
-        # )
+        ),
+        tabPanel(p(i18n$t("Consumption"),icon("lungs")), value = "conso",
+                 mod_02_consoUI_ui('conso', i18n) #,
+                 # conditionalPanel(condition = "output.cond1==TRUE")
+        )
       ),
       hr(style = "border-color: #766812;"),
       

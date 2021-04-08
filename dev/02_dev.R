@@ -20,6 +20,8 @@ usethis::use_package( "shinyTime" )
 usethis::use_package( "lubridate" )
 usethis::use_package( "shinyWidgets" )
 usethis::use_package( "DiveR" )
+usethis::use_package( "shinyjs" )
+#usethis::use_package( "shinydashboard" )
 
 ## Add modules ----
 ## Create a module infrastructure in R/
@@ -27,6 +29,8 @@ usethis::use_package( "DiveR" )
 # golem::add_module( name = "summarisedive" ) # Name of the module
 # golem::add_module( name = "advparaminput" ) # Name of the module
 # golem::add_module( name = "advparaminput" ) # Name of the module
+# golem::add_module( name = "02_consoUI" ) # Name of the module
+
 
 ## Add helper functions ----
 ## Creates ftc_* and utils_*
@@ -54,6 +58,7 @@ usethis::use_vignette("golem")
 devtools::build_vignettes()
 
 ## Code coverage ----
+
 ## (You'll need GitHub there)
 usethis::use_github()
 usethis::use_travis()

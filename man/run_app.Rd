@@ -4,12 +4,15 @@
 \alias{run_app}
 \title{Run the Shiny Application}
 \usage{
-run_app(app_lang = c("en", "fr"), app_maxd = 65)
+run_app(app_lang = c("en", "fr"), app_maxd = 65, app_prod = TRUE)
 }
 \arguments{
 \item{app_lang}{the language for the app. 'en' by default.}
 
 \item{app_maxd}{maximum depth. Maximum and default value is 65.}
+
+\item{app_prod}{is the application in prod. Default value is TRUE.
+Allow to hide tabpanel with shinyjs.}
 }
 \description{
 Run the Shiny Application

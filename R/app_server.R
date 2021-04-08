@@ -25,10 +25,18 @@ app_server <- function( input, output, session ) {
     translator
   })
   
+  # Prod
+  if( golem::get_golem_options("app_prod") ){
+    shinyjs::hide(selector = "#navbar li a[data-value=conso]")
+  } else {
+    shinyjs::show(selector = "#navbar li a[data-value=conso]")
+  }
+  
   #### serveur part ####
   r <- reactiveValues()
   
   observe({
-    r$dives <- modi_01_squareUI_server('square', i18n, r)
+    r$dives <- mod_01_squareUI_server('square', i18n, r)
+    mod_02_consoUI_server('conso', i18n, input$"square-sec_plot", r$dives, r)
   })
 }
