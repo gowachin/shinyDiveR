@@ -160,8 +160,10 @@ mod_02_consoUI_server <- function(id, i18n, sec_plot, dives ,r){
       # plot consuption
       if (!app_prod()){cat('make plot\n')}
       output$plot_conso <- renderPlot({
+        par(bg = "#909fa1")
         plot(dt_conso, ylab = i18n()$t("Pressure (bar)"), 
-             xlab = i18n()$t("Time (min)"), legend = FALSE)
+             xlab = i18n()$t("Time (min)"), legend = FALSE, 
+             dive_col = "#741d16", col.axis = "#741d16", col = "#fd8f0c")
       })
       output$conso <- mod_summariseconsoServer(
         'conso', i18n, dt_conso
