@@ -2,8 +2,9 @@
 #' 
 #' @param request Internal parameter for `{shiny}`. 
 #'     DO NOT REMOVE.
-#' @import shiny shiny.i18n shinyjs
+#' @import shiny shiny.i18n
 #' @importFrom shinyWidgets setSliderColor pickerInput
+#' @importFrom shinyjs useShinyjs
 #' @noRd
 app_ui <- function(request) {
   #### options ####
@@ -18,7 +19,7 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
-      useShinyjs(),
+      shinyjs::useShinyjs(),
       #### Set language and choice ####
       shiny.i18n::usei18n(i18n),
       div(style = "float: right;", tags$style(".chooselang {width: 80px}"),

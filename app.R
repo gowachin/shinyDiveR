@@ -4,4 +4,4 @@
 
 pkgload::load_all(export_all = FALSE,helpers = FALSE,attach_testthat = FALSE)
 options( "golem.app.prod" = TRUE)
-shinyDiveR::run_app('fr') # add parameters here (if any)
+shinyDiveR::run_app(app_lang = 'en', app_prod = FALSE) 
