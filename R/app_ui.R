@@ -43,11 +43,11 @@ app_ui <- function(request) {
       tags$head(tags$style(HTML('.irs-from, .irs-to, .irs-min, .irs-max {
             visibility: hidden !important; }'))),
       # Slider colors 
-      shinyWidgets::setSliderColor(c(rep(c("#2a8dd2", "#cc4f1c"),2) #,
-                                     # "#BDBCBB", "#87F7FF", "#2a8dd2",
-                                     # "#87F7FF", "#cc4f1c"
+      shinyWidgets::setSliderColor(c(rep(c("#2a8dd2", "#cc4f1c"),2) ,"#d33682",
+                                     "#839496", "#2aa198","#2a8dd2",# "#BDBCBB", "#87F7FF", ",
+                                     "#cb4b16", "#d33682"
                                      ), 
-                                   c(1, 2, 3, 4 )), #5, 6, 7, 8, 9)),
+                                   c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)),
       
       #### TITLE ####
       # checkboxInput("help", i18n$t("hepl"), FALSE),

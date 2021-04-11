@@ -124,12 +124,11 @@ mod_02_consoUI_server <- function(id, i18n, sec_plot, dives ,r){
                              first = dives$dive1,
                              second = dives$dive2)
       } else {
+        updateCheckboxInput(session, "sec_plot", "sec_plot", FALSE)
         conso_dive <- dives
       }
       if (!app_prod()){cat('compute conso\n')} # bug here in the conso part! see package
-      print('here')
-      print(input$rule1_press)
-      print(input$rule2_press)
+      print(sprintf("rules : %d %d", input$rule1_press, input$rule2_press))
       
       
       rules <- c(input$rule1_press, input$rule2_press)
@@ -151,6 +150,8 @@ mod_02_consoUI_server <- function(id, i18n, sec_plot, dives ,r){
       tank <- tank(vol = input$volume, press = input$press, 
                    rules = list( rules = rules, sys = "bar" ))
       print('hello there')
+      print(summary(conso_dive))
+      print(summary(tank))
       dt_conso <- conso(dive = conso_dive, tank, 
                         cons = input$cons, failure_label = 'AF')
       print('ok')
@@ -165,6 +166,7 @@ mod_02_consoUI_server <- function(id, i18n, sec_plot, dives ,r){
       output$conso <- mod_summariseconsoServer(
         'conso', i18n, dt_conso
         )
+      print("conso done")
       
     }
   )

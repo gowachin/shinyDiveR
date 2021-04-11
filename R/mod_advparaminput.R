@@ -23,7 +23,11 @@ mod_advparamInput <- function(id, i18n){
         onStatus = "success", offStatus = "danger"
       ),
       # checkboxInput("secu", i18n$t("Security stop"), TRUE),
-      numericInput(ns("vup"), i18n$t("Ascent speed:"), 10, min = 1),
+      sliderInput(
+        inputId = ns("vup"), label = i18n$t("Ascent speed:"),
+        min = 1, max = 20, value = 10
+      ),
+      # numericInput(ns("vup"), i18n$t("Ascent speed:"), 10, min = 1, max = 120),
       helpText(
         i18n$t(paste0("Recommended speed for propper desaturation ",
                       "is between 10 and 15 m/min"))
