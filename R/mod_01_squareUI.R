@@ -152,8 +152,7 @@ mod_01_squareUI_server <- function(id, i18n, r){
       tmp <- input$time2
       
       updateCheckboxInput(session, "time_sec", "ghost second dive",
-                          value = (maxt2 > 0)
-      )
+                          value = (maxt2 > 0) )
       r$sec_plot <- input$sec & input$ghost_sec & input$time_sec
       # updateCheckboxInput(session, "sec_plot", "ghost second dive",
       #                     value = input$sec & input$ghost_sec & input$time_sec
@@ -169,7 +168,7 @@ mod_01_squareUI_server <- function(id, i18n, r){
         # cat(input$sec_plot, "sec plot")
         cat(r$sec_plot, "sec plot")
       }
-      ################ SLIDER T2 UPDATE ################
+      ################ SLIDER T2 & D2 UPDATE ################
       if (timet > maxt2 | !input$time_sec) {
         if (!app_prod()){cat("\n\n update slider")}
         updateSliderInput(session, "time2", value = maxt2, min = 1, max = maxt2)

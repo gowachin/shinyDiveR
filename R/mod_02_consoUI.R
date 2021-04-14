@@ -49,7 +49,7 @@ mod_02_consoUI_ui <- function(id, i18n){
           min = 10, max = 300, value = 200, step = 10
         ),
         sliderInput(
-          inputId = ns("cons"), label = i18n$t("Consumption (litre/minute) :"),
+          inputId = ns("cons"), label = i18n$t("Surface consumption (litre/minute) :"),
           min = 10, max = 30, value = 20, step = 1
         ),
         # rule 1 
@@ -57,7 +57,7 @@ mod_02_consoUI_ui <- function(id, i18n){
                        "to watch during a dive"))),
         fluidRow(
           column(width = 4, textInput(ns('rule1'), i18n$t('Rule 1'), 
-                                      value = "Mid-pression")),
+                                      value = "Mid-pressure")),
           column(8, 
                  sliderInput( inputId = ns("rule1_press"), 
                               label = i18n$t("Pressure (bar) :"),
@@ -93,7 +93,8 @@ mod_02_consoUI_ui <- function(id, i18n){
       ),
       mainPanel(
         plotOutput(outputId = ns("plot_conso")),
-        verbatimTextOutput(outputId = ns("conso"))
+        verbatimTextOutput(outputId = ns("conso"))#,
+        # mod_pkg_name_ui(ns("test"))
       )
     )
   )

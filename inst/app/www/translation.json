@@ -45,7 +45,7 @@
       {"en": " meters with a total dive time of ", "fr": " metres avec un temps total de plongée de "},
       {"en": "The final pressure is ", "fr": "La pression finale est de "},
       {"en": "You can input a tank by its volum and pressure", "fr": "Il est posible de définir un bloc par son volume et sa pression"},
-      {"en": "Consumption (litre/minute) :", "fr": "Consommation (litre/minute) :"},
+      {"en": "Surface consumption (litre/minute) :", "fr": "Consommation en surface (litre/minute) :"},
       {"en": "The %s rule '%s' is reached at %.1f minutes", "fr": "La %s règle '%s' est atteinte à %.1f minutes"},
       {"en": "first", "fr": "première"},
       {"en": "second", "fr": "seconde"},
