@@ -1,11 +1,11 @@
-#' summarisedive server Function
+#' summariseconso server Function
 #'
-#' @description A shiny Module to summarise dive objects.
-#' submodule of mod_01_squareUI
+#' @description A shiny Module to summarise conso objects.
+#' submodule of mod_02_consoUI
 #'
 #' @param id shiny id
 #' @param i18n traduction language in a reactive element
-#' @param dive a dive object created by the mn90 package
+#' @param conso a conso object created by the mn90 package
 #'
 #'
 #' @noRd 

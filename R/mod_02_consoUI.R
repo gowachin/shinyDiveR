@@ -93,8 +93,11 @@ mod_02_consoUI_ui <- function(id, i18n){
       ),
       mainPanel(
         plotOutput(outputId = ns("plot_conso")),
-        verbatimTextOutput(outputId = ns("conso"))#,
-        # mod_pkg_name_ui(ns("test"))
+        verbatimTextOutput(outputId = ns("conso")),
+        mod_peda_conso_ui(id = ns("peda"), 
+                          press = ns("peda_press"), vol = ns("peda_vol"),
+                          # fin_press = ns("peda_finpress"),
+                          maxt = ns("peda_maxt") )
       )
     )
   )
@@ -164,9 +167,13 @@ mod_02_consoUI_server <- function(id, i18n, sec_plot, dives ,r){
         plot(dt_conso, ylab = i18n()$t("Pressure (bar)"), 
              xlab = i18n()$t("Time (min)"), legend = FALSE, def_cols = TRUE)
       })
-      output$conso <- mod_summariseconsoServer(
-        'conso', i18n, dt_conso
-        )
+      output$conso <- mod_summariseconsoServer('conso', i18n, dt_conso)
+      output$peda_press <- mod_peda_pressServer('peda_press', i18n, dt_conso)
+      output$peda_vol <- mod_peda_volServer("peda_vol", i18n, dt_conso, input)
+      output$peda_maxt <- mod_peda_maxtServer("peda_vol", i18n, dt_conso, input)
+      # output$peda_finpress <- mod_peda_finpressServer(
+      #   'peda_finpress', i18n, dt_conso, input)
+      
       print("conso done")
       
     }

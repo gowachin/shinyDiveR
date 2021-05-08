@@ -83,7 +83,7 @@ app_ui <- function(request) {
       #### End of page ####
       fluidRow(
         column(5, # tags$a(href = "https://www.cteeter.ca", 'Chris Teeter', target = '_blank')
-               p("App created by Maxime Jaunatre in January 2021", HTML("&bull;"),
+               p("App created by Maxime Jaunatre in May 2021", HTML("&bull;"),
                  "Find the code on Github:", 
                  tags$a(href = "https://github.com/gowachin/shinyDiveR", 
                         tags$i(class = 'fa fa-github', style = 'color:#bd971e'), 
