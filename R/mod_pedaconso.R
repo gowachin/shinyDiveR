@@ -1,5 +1,3 @@
-# computation explanation
-
 # following point :
 # depth :
 # absolute pressure :  (water pressure : )
@@ -8,9 +6,6 @@
 # time possible at this depth
 
 # Note that by diving with a buddy, you may share your air with him in case of accident.
-
-
-# Was copied from hexmake !
 
 #' peda_conso_ui
 #' 
@@ -21,6 +16,8 @@
 #' @param vol show volume calculus
 #'
 #' @noRd 
+#' 
+#' Drop down part Was copied from hexmake !
 #' 
 #' @importFrom shiny NS tagList tags fluidRow textInput numericInput tagAppendAttributes selectInput
 #' @importFrom tools toTitleCase
@@ -34,7 +31,7 @@ mod_peda_conso_ui <- function(id, press, vol, maxt){
         fluidRow(
           col_12(
             h4("Compute pressure"),
-            verbatimTextOutput(outputId = press)
+            uiOutput(outputId = press)
           ),
           col_12(
             h4("Compute required volume"),
@@ -42,6 +39,7 @@ mod_peda_conso_ui <- function(id, press, vol, maxt){
           ),
           col_12(
             h4("Maximum time at depth (without rules)"),
+            # textOutput(maxt)
             verbatimTextOutput(outputId = maxt)
           )
         )
@@ -67,13 +65,15 @@ mod_peda_pressServer <- function(id, i18n, conso){
     ## Below is the module function
     function(input, output, session) {
       
-      ret <- renderText({
-        paste0(
-          i18n()$t("absolute pressure = water pressure + atmospheric pressure \n"),
-          i18n()$t("absolute pressure = depth / 10 + 1 bar = "),
-          depth(conso), "/10 + 1 = ", 
-          depth(conso) /10, " + 1 = ", depth(conso) /10 + 1, " bar\n"#,
-        )
+      ret <- renderUI({
+        withMathJax(paste0(
+          i18n()$t("$$pressure_{abs} "),
+          i18n()$t("= pressure_{water} + pressure_{atmo}\\\\ "),
+          i18n()$t(" pressure_{abs} "),
+          i18n()$t("= \\frac{depth}{10} + 1 = "),"\\frac{",
+          depth(conso), "}{10} + 1 = ",
+          depth(conso) /10, " + 1 = ", depth(conso) /10 + 1, " \\text{bar}$$"#,
+        ))
       })
       ret
     }
@@ -95,7 +95,7 @@ mod_peda_volServer <- function(id, i18n, conso, input){
   })
 }
 
-#' @noRd 
+#' @noRd # NOT USED
 mod_peda_finpressServer <- function(id, i18n, conso, input){
   renderText({
     paste0(

@@ -19,6 +19,7 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
+      withMathJax(),
       shinyjs::useShinyjs(),
       #### Set language and choice ####
       shiny.i18n::usei18n(i18n),
