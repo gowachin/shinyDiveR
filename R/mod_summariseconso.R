@@ -21,21 +21,34 @@ mod_summariseconsoServer <- function(id, i18n, conso){
       } else {
         viable <- i18n()$t("The dive is deadly !")
         fail <- paste0(i18n()$t("The air failure happens at "),
-        rules(conso, n =0)$timeE, i18n()$t(" at "),
-        - depth_at_time(conso, rules(conso, n =0)$timeE), "m\n")
+                       rules(conso, n =0)$timeE, i18n()$t(" at "),
+                       - depth_at_time(conso, rules(conso, n =0)$timeE), "m\n")
       }
       
-            ret <- renderText({
+      met_rule <- character(2)
+      ord_rule <- c(i18n()$t("first"), i18n()$t("second"))
+      
+      for(r in seq_along(met_rule)){
+        if(! is.na(rules(conso)[paste0("time", r)])){
+          met_rule[r] <- sprintf(
+            i18n()$t("The %s rule '%s' is reached at %.1f minutes"),
+            ord_rule[r], rules(conso)[paste0("name", r)], 
+            rules(conso)[paste0("time", r)])
+        } else {
+          met_rule[r] <- sprintf(
+            i18n()$t("The %s rule '%s' is not reached"),
+            ord_rule[r], rules(conso)[paste0("name", r)])
+        }
+      }
+      
+      
+      ret <- renderText({
         paste0(
           i18n()$t("The dive reaches "), depth(conso),
           i18n()$t(" meters with a total dive time of "), 
           round(diff(conso$hour),2), " minutes.\n",
           i18n()$t("The final pressure is "), pressure(conso), " bar\n",
-          paste(sprintf(i18n()$t("The %s rule '%s' is reached at %.1f minutes"),
-                  c(i18n()$t("first"), i18n()$t("second")),
-                  unlist(rules(conso)[c(2, 5)]), 
-                  unlist(rules(conso)[c(3, 6)]) 
-          ), collapse = "\n"),"\n",
+          met_rule[1], "\n", met_rule[2],"\n\n",
           fail,
           viable, "\n"
         )

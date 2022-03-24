@@ -47,6 +47,7 @@
       {"en": "You can input a tank by its volum and pressure", "fr": "Il est posible de définir un bloc par son volume et sa pression"},
       {"en": "Consumption (litre/minute) :", "fr": "Consommation (litre/minute) :"},
       {"en": "The %s rule '%s' is reached at %.1f minutes", "fr": "La %s règle '%s' est atteinte à %.1f minutes"},
+      {"en": "The %s rule '%s' is not reached", "fr": "La %s règle '%s' n'est pas atteinte"},
       {"en": "first", "fr": "première"},
       {"en": "second", "fr": "seconde"},
       {"en": "Rule 1", "fr": "Règle 1"}, {"en": "Rule 2", "fr": "Règle 2"},
