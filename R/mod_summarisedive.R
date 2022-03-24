@@ -16,9 +16,9 @@ mod_summarisediveServer <- function(id, i18n, dive, num = c("first", "second")){
     id,
     ## Below is the module function
     function(input, output, session) {
-      sup <- dive$desat$time > 0
+      sup <- dive$desat$desat_stop$time > 0
       n <- sum(sup)
-      diz <- sum(dive$desat$time[sup] > 9)
+      diz <- sum(dive$desat$desat_stop$time[sup] > 9)
       sp <- c(rep("  ", n - diz), rep(" ", diz))
       
       if(dive$desat$group != "Z"){
@@ -41,13 +41,13 @@ mod_summarisediveServer <- function(id, i18n, dive, num = c("first", "second")){
           i18n()$t("Total dive time is "), round(diff(dive$hour),2),
           i18n()$t(" minutes with an ascent of "), 
           round(dive$params["dtr"], 2), " minutes.\n",
-          sum(dive$desat$time > 0), i18n()$t(" stops :"),
+          sum(dive$desat$desat_stop$time > 0), i18n()$t(" stops :"),
           paste(sprintf(
             i18n()$t("%s%d minutes at %d meters"), sp,
-            dive$desat$time[sup],
-            dive$desat$depth[sup]
+            dive$desat$desat_stop$time[sup],
+            dive$desat$desat_stop$depth[sup]
           ),
-          collapse = "\n         "
+          collapse = "\n           "
           ), '\n', group, '\n', maj
         )
         
